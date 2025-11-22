@@ -8,7 +8,11 @@ function Service() {
   return (
     <>
       <section>
-        <div>what we do</div>
+        <div>
+            <h3>WHAT WE DO</h3>
+            <h1>Our Services</h1>
+            <p>Comprehensive digital solutions tailored to bring your vision to life.</p>
+        </div>
       </section>
     </>
   )
