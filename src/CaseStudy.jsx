@@ -466,7 +466,7 @@ const FAQSection = () => {
     { question: 'What\'s your process? How involved do I need to be?', answer: 'Our process includes discovery, design, development, testing, and launch. We keep you involved at key milestones while handling the heavy lifting.' },
     { question: 'Do you work with clients outside Nigeria?', answer: 'Yes! We work with clients globally and have experience delivering projects internationally.' },
     { question: 'Do you offer payment plans or flexible payment options?', answer: 'Yes, we offer flexible payment plans tailored to your project needs.' },
-    { question: 'What if I'm not satisfied with the work?', answer: 'We work closely with you throughout the process and offer revisions to ensure you\'re completely satisfied.' },
+    { question: 'What if Im not satisfied with the work?', answer: 'We work closely with you throughout the process and offer revisions to ensure you\'re completely satisfied.' },
     { question: 'Will I own the code and design files?', answer: 'Yes, upon project completion and full payment, you own all the code and design files.' },
     { question: 'What technologies do you use?', answer: 'We use modern technologies including React, Node.js, React Native, and more, chosen based on your project needs.' },
     { question: 'Do you provide ongoing support and maintenance after launch?', answer: 'Yes, we offer ongoing support and maintenance packages to keep your product running smoothly.' }
@@ -490,7 +490,7 @@ const FAQSection = () => {
 };
 
 // Main App Component
-const App = () => {
+const CaseStudy = () => {
   return (
     <div className="min-h-screen bg-white">
       <Navbar />
@@ -520,4 +520,4 @@ const App = () => {
   );
 };
 
-export default App;
+export default CaseStudy;
