@@ -7,6 +7,7 @@ import Service from './service.jsx'
 
 createRoot(document.getElementById('root')).render(
   <StrictMode>
+    <CaseStudy />
     <App />
     <Hero />
     <Service />
