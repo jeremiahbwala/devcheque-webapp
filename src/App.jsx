@@ -2,13 +2,13 @@ import './index.css';
 import React, { useState, useEffect } from 'react';
 import { Rocket, Users, Award, Star, CheckCircle, Code, Smartphone, Palette, TrendingUp, ChevronLeft, ChevronRight, Menu, X } from 'lucide-react';
 
-export function DevChequeWebsite() {
+function DevChequeWebsite() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   return (
       <div className="min-h-screen bg-gray-50">
         {/* Navigation */}
         <nav className="bg-white shadow-sm fixed w-full top-0 z-50">
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="max-w-ss7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="flex justify-between items-center h-16">
               <div className="flex items-center space-x-2">
                 <div className="w-8 h-8 bg-green-500 rounded"></div>
@@ -45,13 +45,7 @@ export function DevChequeWebsite() {
               </div>
             </div>
           )}
-        </nav>
-
-        
-
-        
-
-        
+        </nav> 
       </div>
     );
 }

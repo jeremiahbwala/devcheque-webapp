@@ -1,5 +1,5 @@
 import './index.css';
-import React, { useState, useEffect } from 'react';
+import { Palette, Code, Smartphone, TrendingUp } from "lucide-react";
 
 function Services() {
     return (

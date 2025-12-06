@@ -1,7 +1,23 @@
 import './index.css';
 import React, { useState } from 'react';
+import { Rocket, CheckCircle, TrendingUp } from "lucide-react";
+
 
 function CaseStudy() {
+    const caseStudies = [
+        {
+          title: 'App Design For Firefit',
+          description: 'FitTrack was created to simplify digital coaching for fast-growing fitness communities. We transformed their traditional WhatsApp and spreadsheet workflow into a seamless mobile experience. With a cross-platform app built around our main needs, coaches can onboard clients, deliver personalized workout plans, and track client performance, personalized training, and a smooth experience from start to finish.'
+        },
+        {
+          title: 'Website Design for camsecure',
+          description: 'CamSecure struggled to attract enterprise clients due to its outdated brand, unclear messaging, and a website that lacked the polish they deserved. We audited their entire online presence, reimagined their brand with a new logo, visual system, and clearer narrative. The redesign website featured improved structure, stronger storytelling, and a simplified contact format. We also built a scalable component library for future growth.'
+        },
+        {
+          title: 'Web Design For Tradeport',
+          description: 'FitTrack was built to simplify digital coaching. Designed with a clear goal: it simplified decision-making for coaches and delivered results. We created a cross-platform app that helps traders manage clients, track progress, and deliver personalized training with ease. FitTrack ensures reliable performance on a smooth experience from start to finish.'
+        }
+      ];
     return (
         <>
             {/* Case Studies */}
@@ -51,6 +67,7 @@ function CaseStudy() {
                                 We handle everything from branding, design, frontend, backend, deployment. No multiple vendors, no frontend gaps. One team, one point of contact, seamless execution from concept to launch.
                             </p>
                         </div>
+                    </div>
                     <div className="bg-gray-800 p-6 rounded-xl">
                         <div className="w-12 h-12 bg-green-500 rounded-lg flex items-center justify-center mb-4">
                             <CheckCircle size={24} />
@@ -70,7 +87,6 @@ function CaseStudy() {
                         </p>
                     </div>
                 </div>
-            </div>
             </section>
         </>
     )

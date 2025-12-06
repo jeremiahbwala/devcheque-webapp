@@ -1,5 +1,6 @@
 import './index.css';
 import React, { useState, useEffect } from 'react';
+import { ChevronLeft, ChevronRight } from 'lucide-react';
 
 function Team() {
   const [currentTeamIndex, setCurrentTeamIndex] = useState(0);
@@ -38,20 +39,7 @@ function Team() {
         }
       ];
     
-      const caseStudies = [
-        {
-          title: 'App Design For Firefit',
-          description: 'FitTrack was created to simplify digital coaching for fast-growing fitness communities. We transformed their traditional WhatsApp and spreadsheet workflow into a seamless mobile experience. With a cross-platform app built around our main needs, coaches can onboard clients, deliver personalized workout plans, and track client performance, personalized training, and a smooth experience from start to finish.'
-        },
-        {
-          title: 'Website Design for camsecure',
-          description: 'CamSecure struggled to attract enterprise clients due to its outdated brand, unclear messaging, and a website that lacked the polish they deserved. We audited their entire online presence, reimagined their brand with a new logo, visual system, and clearer narrative. The redesign website featured improved structure, stronger storytelling, and a simplified contact format. We also built a scalable component library for future growth.'
-        },
-        {
-          title: 'Web Design For Tradeport',
-          description: 'FitTrack was built to simplify digital coaching. Designed with a clear goal: it simplified decision-making for coaches and delivered results. We created a cross-platform app that helps traders manage clients, track progress, and deliver personalized training with ease. FitTrack ensures reliable performance on a smooth experience from start to finish.'
-        }
-      ];
+      
       useEffect(() => {
         const interval = setInterval(() => {
           setCurrentTeamIndex((prev) => (prev + 1) % teamMembers.length);
@@ -67,14 +55,6 @@ function Team() {
         setCurrentTeamIndex((prev) => (prev + 1) % teamMembers.length);
       };
     
-      const handleProjectTypeToggle = (type) => {
-        setFormData(prev => ({
-          ...prev,
-          projectTypes: prev.projectTypes.includes(type)
-            ? prev.projectTypes.filter(t => t !== type)
-            : [...prev.projectTypes, type]
-        }));
-      };
     return (
         <section id="about" className="py-16 px-4 bg-white">
           <div className="max-w-7xl mx-auto">

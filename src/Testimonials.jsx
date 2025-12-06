@@ -1,5 +1,6 @@
 import './index.css';
-import React, { useState, useEffect } from 'react';
+import { Star } from "lucide-react";
+
 
 function Testimonials() {
     return (
@@ -63,6 +64,7 @@ function Testimonials() {
                                 We start by understanding your goals, challenges, and vision for the product before starting a plan.
                             </p>
                         </div>
+                    </div>
                     <div className="bg-gray-50 p-6 rounded-xl">
                         <div className="text-green-600 font-bold mb-2">#2</div>
                         <h3 className="text-xl font-bold mb-2">Design Sprint</h3>
@@ -99,7 +101,6 @@ function Testimonials() {
                         </p>
                     </div>
                 </div>
-            </div>
         </section>
         </>
     )
