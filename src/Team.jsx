@@ -2,6 +2,7 @@ import './index.css';
 import React, { useState, useEffect } from 'react';
 
 function Team() {
+  const [currentTeamIndex, setCurrentTeamIndex] = useState(0);
     const teamMembers = [
         {
           name: 'Bolaji',
@@ -51,6 +52,29 @@ function Team() {
           description: 'FitTrack was built to simplify digital coaching. Designed with a clear goal: it simplified decision-making for coaches and delivered results. We created a cross-platform app that helps traders manage clients, track progress, and deliver personalized training with ease. FitTrack ensures reliable performance on a smooth experience from start to finish.'
         }
       ];
+      useEffect(() => {
+        const interval = setInterval(() => {
+          setCurrentTeamIndex((prev) => (prev + 1) % teamMembers.length);
+        }, 4000);
+        return () => clearInterval(interval);
+      }, [teamMembers.length]);
+    
+      const handlePrevTeam = () => {
+        setCurrentTeamIndex((prev) => (prev - 1 + teamMembers.length) % teamMembers.length);
+      };
+    
+      const handleNextTeam = () => {
+        setCurrentTeamIndex((prev) => (prev + 1) % teamMembers.length);
+      };
+    
+      const handleProjectTypeToggle = (type) => {
+        setFormData(prev => ({
+          ...prev,
+          projectTypes: prev.projectTypes.includes(type)
+            ? prev.projectTypes.filter(t => t !== type)
+            : [...prev.projectTypes, type]
+        }));
+      };
     return (
         <section id="about" className="py-16 px-4 bg-white">
           <div className="max-w-7xl mx-auto">

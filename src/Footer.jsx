@@ -3,7 +3,7 @@ import React, { useState, useEffect } from 'react';
 
 function Footer() {
     return (
-        <footer className="bg-gray-900 text-white py-12 px-4">
+        <section className="bg-gray-900 text-white py-12 px-4">
           <div className="max-w-7xl mx-auto">
             <div className="grid md:grid-cols-4 gap-8 mb-8">
               <div>
@@ -69,7 +69,7 @@ function Footer() {
               <p>© 2024 DevCheque. All rights reserved.</p>
             </div>
           </div>
-        </footer>
+        </section>
     )
 }
 

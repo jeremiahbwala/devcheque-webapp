@@ -3,6 +3,7 @@ import React, { useState, useEffect } from 'react';
 import { Rocket, Users, Award, Star, CheckCircle, Code, Smartphone, Palette, TrendingUp, ChevronLeft, ChevronRight, Menu, X } from 'lucide-react';
 
 function FAQ() {
+    const [openFaq, setOpenFaq] = useState(null);
     const faqs = [
         { q: 'What services does DevCheque offer?', a: 'DevCheque delivers end-to-end digital product design and development' },
         { q: 'Do you only design, or do you also build/develop?', a: 'We do both - full design and development services' },
@@ -50,3 +51,5 @@ function FAQ() {
         </section>
     )
 }
+
+export default FAQ;
