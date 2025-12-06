@@ -12,7 +12,7 @@ function DevChequeWebsite() {
             <div className="flex justify-between items-center h-16">
               <div className="flex items-center space-x-2">
                 <div className="w-8 h-8 bg-green-500 rounded"></div>
-                <span className="text-xl font-bold">Devcheque</span>
+                <img src="src/assets/image 1.png" loading="lazy" />
               </div>
             
               <div className="hidden md:flex space-x-8">

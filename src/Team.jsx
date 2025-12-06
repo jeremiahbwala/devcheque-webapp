@@ -1,6 +1,11 @@
 import './index.css';
 import React, { useState, useEffect } from 'react';
 import { ChevronLeft, ChevronRight } from 'lucide-react';
+import bolajiImg from './assets/team/Bolaji.jpeg';
+import olutadeImg from './assets/team/Olutade.jpeg';
+import fortuneImg from './assets/team/Fortune.jpeg';
+import chideraImg from './assets/team/Chidera.jpeg';
+
 
 function Team() {
   const [currentTeamIndex, setCurrentTeamIndex] = useState(0);
@@ -9,6 +14,7 @@ function Team() {
           name: 'Bolaji',
           role: 'Team Lead',
           experience: '3+ years',
+          image: bolajiImg, 
           description: 'Seasoned product designer and team leader who turns complex problems into elegant user experiences. He ensures every design decision aligns with user needs and business goals.',
           skills: ['Product Design', 'Ux Strategy', 'Design System', 'Prototyping'],
           expertise: 'Great code and artwork, innovative'
@@ -17,6 +23,7 @@ function Team() {
           name: 'Olutade',
           role: 'Team Lead',
           experience: '3+ years',
+          image: olutadeImg,
           description: 'Olutade builds scalable and reliable digital products with clean engineering practices. He skills as a digital between design and development, ensuring seamless execution.',
           skills: ['Frontend Development', 'React', 'Custom Architecture'],
           expertise: 'High quality builds delivered with expertise promised'
@@ -25,6 +32,7 @@ function Team() {
           name: 'Fortune',
           role: 'Team Lead',
           experience: '6+ years',
+          image: fortuneImg,
           description: 'Fortune blends creativity with precision to craft beautiful, intuitive user experiences. She highlights ideas into digital products that users love and businesses grow with.',
           skills: ['Sales', 'Wordsmithing', 'Visual Design', 'Interaction Design', 'Prototyping'],
           expertise: 'Seasoned mix of keen saleswomanship and quality'
@@ -33,6 +41,7 @@ function Team() {
           name: 'Chidera',
           role: 'Team Lead',
           experience: '4+ years',
+          image: chideraImg,
           description: 'Chidera takes user-focused design approaches bringing strategic thinking and creative visual interfaces that resonate with audiences.',
           skills: ['Strategy', 'Ux Architecture'],
           expertise: 'Strategic thinking'
@@ -61,17 +70,26 @@ function Team() {
             <h2 className="text-3xl md:text-4xl font-bold text-center mb-12">About us</h2>
             <div className="md:flex gap-12 items-center mb-16">
               <div className="md:w-1/2 mb-8 md:mb-0">
-                <h3 className="text-2xl font-bold mb-4">We Create Digital Products That Make a Difference</h3>
+                <h3 className="text-2xl font-bold mb-4">Every great business starts with a vision. Ours started with two developers and one frustrating realization</h3>
                 <p className="text-gray-600 mb-6">
-                  DevCheque began with a simple mission: help founders get reliable, high-quality digital products without delays or excuses. What started with two developers is now a trusted studio delivering clean design, solid development, and real results. From UI/UX to web and mobile apps, we turn ideas into scalable, effective products.
+                  In 2019, Bolaji and Olutade were watching talented African founders struggle, not because their  ideas weren't brilliant, but because they couldn't find developers and designers who actually delivered.
+                  Projects dragged on for months. Communication was spotty. Quality was inconsistent, We knew there had to be a better way. 
+                </p>
+                <p>
+                  DevCheque was built on a simply promise: deliver exceptional digital products, on time and on budget, without the adency BS. No overpromising. No endless revisions. No surprise fees. Just honest work from people who care about your success. <br />
+                  Six years and 50+ projects later, that promises still drives everything we do.
+                </p>
+                <p>
+                  We've helped fintech startups launch MVPs that attracted seed funding. We've redesigned e-commerce platforms that doubled conversion rates. We've built mobile apps that users genuinely love.
+                  But our proudest acheivements aren't just the projects, they're the relationships we've built and the businesses we've helped grow. Today, DevCheque is more than a design and development studio.
                 </p>
                 <button className="text-green-600 font-semibold hover:text-green-700">
-                  See more Informations ⓘ
+                  Read more ⓘ
                 </button>
               </div>
               <div className="md:w-1/2">
                 <div className="bg-gradient-to-br from-yellow-100 to-orange-200 rounded-2xl p-8 h-64 flex items-center justify-center">
-                  <div className="bg-gray-300 w-full h-full rounded-lg"></div>
+                  <img src="src/assets/About.jpeg" loading='lazy' />
                 </div>
               </div>
             </div>
@@ -92,7 +110,12 @@ function Team() {
                     {teamMembers.map((member, index) => (
                       <div key={index} className="w-full flex-shrink-0 px-2">
                         <div className="bg-white border-2 border-gray-200 rounded-2xl p-6 shadow-lg max-w-md mx-auto">
-                          <div className="w-full h-48 bg-gray-200 rounded-lg mb-4"></div>
+                        <img 
+                          src={member.image} 
+                          alt={member.name} 
+                          className="w-full h-48 object-cover rounded-lg mb-4"
+                        />
+
                           <div className="flex justify-between items-start mb-3">
                             <div>
                               <h4 className="text-xl font-bold">{member.name}</h4>
