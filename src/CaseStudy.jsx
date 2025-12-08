@@ -1,4 +1,4 @@
-import './index.css';
+import 'bootstrap/dist/css/bootstrap.min.css'
 import React, { useState } from 'react';
 import { Rocket, CheckCircle, TrendingUp } from "lucide-react";
 
@@ -20,75 +20,99 @@ function CaseStudy() {
       ];
     return (
         <>
-            {/* Case Studies */}
-            <section id="projects" className="py-16 px-4 bg-gray-100">
-                <div className="max-w-7xl mx-auto">
-                    <h2 className="text-3xl md:text-4xl font-bold text-center mb-4">Case studies</h2>
-                    <p className="text-center text-gray-600 mb-12">
-                        Explore our recent projects and see how we've helped brands achieve their goals
-                    </p>
-                    <div className="space-y-8">
-                        {caseStudies.map((study, index) => (
-                            <div key={index} className="bg-white rounded-xl shadow-lg overflow-hidden">
-                                <div className="md:flex">
-                                    <div className="md:w-1/2 p-6 bg-gradient-to-br from-blue-100 to-purple-100 flex items-center justify-center">
-                                        <div className="grid grid-cols-3 gap-4">
-                                            {[1, 2, 3].map((i) => (
-                                            <div key={i} className="w-24 h-48 bg-gradient-to-br from-blue-500 to-purple-600 rounded-2xl shadow-lg"></div>
-                                            ))}
-                                        </div>
-                                    </div>
-                                    <div className="md:w-1/2 p-8">
-                                        <h3 className="text-2xl font-bold mb-4">{study.title}</h3>
-                                        <p className="text-gray-600 mb-6">{study.description}</p>
-                                        <button className="text-green-600 font-semibold hover:text-green-700">
-                                             Read More →
-                                        </button>
-                                    </div>
-                                </div>
-                            </div>
-                        ))}
-                    </div>
-                </div>
-            </section>
+      {/* Case Studies */}
+      <section id="projects" className="py-5 bg-light">
+        <div className="container">
+          <h2 className="text-center fw-bold mb-3 display-5">Case studies</h2>
+          <p className="text-center text-secondary mb-5">
+            Explore our recent projects and see how we've helped brands achieve their goals
+          </p>
 
-            {/* Why Work With Us */}
-            <section className="py-16 px-4 bg-gray-900 text-white">
-                <div className="max-w-7xl mx-auto">
-                    <h2 className="text-3xl md:text-4xl font-bold text-center mb-4">Why Work With DevCheque?</h2>
-                    <p className="text-center text-gray-400 mb-12">What makes us different from other agencies</p>
-                    <div className="grid md:grid-cols-3 gap-8">
-                        <div className="bg-gray-800 p-6 rounded-xl">
-                            <div className="w-12 h-12 bg-green-500 rounded-lg flex items-center justify-center mb-4">
-                                <Rocket size={24} />
-                            </div>
-                            <h3 className="text-xl font-bold mb-2">Launch in Weeks, Not Months</h3>
-                            <p className="text-gray-400">
-                                We handle everything from branding, design, frontend, backend, deployment. No multiple vendors, no frontend gaps. One team, one point of contact, seamless execution from concept to launch.
-                            </p>
-                        </div>
+          <div className="d-flex flex-column gap-4">
+            {caseStudies.map((study, index) => (
+              <div key={index} className="card shadow-sm overflow-hidden">
+                <div className="row g-0">
+                  {/* Images/Thumbnails */}
+                  <div className="col-md-6 d-flex align-items-center justify-content-center p-3" style={{ background: 'linear-gradient(to bottom right, #cfe2ff, #e0bbff)' }}>
+                    <div className="d-flex gap-3">
+                      {[1, 2, 3].map((i) => (
+                        <div
+                          key={i}
+                          className="rounded-3 shadow"
+                          style={{
+                            width: '6rem',
+                            height: '12rem',
+                            background: 'linear-gradient(to bottom right, #0d6efd, #6f42c1)',
+                          }}
+                        ></div>
+                      ))}
                     </div>
-                    <div className="bg-gray-800 p-6 rounded-xl">
-                        <div className="w-12 h-12 bg-green-500 rounded-lg flex items-center justify-center mb-4">
-                            <CheckCircle size={24} />
-                        </div>
-                        <h3 className="text-xl font-bold mb-2">Full-Stack Experience</h3>
-                        <p className="text-gray-400">
-                             We handle everything from branding, design, frontend, backend, deployment. No multiple vendors, no frontend gaps. One team, one point of contact, seamless execution from concept to launch.
-                        </p>
-                    </div>
-                    <div className="bg-gray-800 p-6 rounded-xl">
-                        <div className="w-12 h-12 bg-green-500 rounded-lg flex items-center justify-center mb-4">
-                            <TrendingUp size={24} />
-                        </div>
-                        <h3 className="text-xl font-bold mb-2">Result Oriented</h3>
-                        <p className="text-gray-400">
-                             We handle everything from branding, design, frontend, backend, development. No multiple vendors, no frontend gaps. One team, one point of contact, seamless execution from concept to launch.
-                        </p>
-                    </div>
+                  </div>
+
+                  {/* Text Content */}
+                  <div className="col-md-6 p-4">
+                    <h3 className="fw-bold mb-3">{study.title}</h3>
+                    <p className="text-secondary mb-3">{study.description}</p>
+                    <button className="btn btn-link text-success fw-semibold p-0">
+                      Read More →
+                    </button>
+                  </div>
                 </div>
-            </section>
-        </>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Why Work With Us */}
+      <section className="py-5 bg-dark text-white">
+        <div className="container">
+          <h2 className="text-center fw-bold mb-3 display-5">Why Work With DevCheque?</h2>
+          <p className="text-center text-secondary mb-5">What makes us different from other agencies</p>
+
+          <div className="row g-4">
+            {/* Card 1 */}
+            <div className="col-md-4">
+              <div className="card bg-secondary text-white h-100 p-3 rounded-3">
+                <div className="bg-success d-flex align-items-center justify-content-center mb-3" style={{ width: '3rem', height: '3rem', borderRadius: '0.5rem' }}>
+                  <Rocket size={24} />
+                </div>
+                <h3 className="h5 fw-bold mb-2">Launch in Weeks, Not Months</h3>
+                <p className="text-white-50">
+                  We handle everything from branding, design, frontend, backend, deployment. No multiple vendors, no frontend gaps. One team, one point of contact, seamless execution from concept to launch.
+                </p>
+              </div>
+            </div>
+
+            {/* Card 2 */}
+            <div className="col-md-4">
+              <div className="card bg-secondary text-white h-100 p-3 rounded-3">
+                <div className="bg-success d-flex align-items-center justify-content-center mb-3" style={{ width: '3rem', height: '3rem', borderRadius: '0.5rem' }}>
+                  <CheckCircle size={24} />
+                </div>
+                <h3 className="h5 fw-bold mb-2">Full-Stack Experience</h3>
+                <p className="text-white-50">
+                  We handle everything from branding, design, frontend, backend, deployment. No multiple vendors, no frontend gaps. One team, one point of contact, seamless execution from concept to launch.
+                </p>
+              </div>
+            </div>
+
+            {/* Card 3 */}
+            <div className="col-md-4">
+              <div className="card bg-secondary text-white h-100 p-3 rounded-3">
+                <div className="bg-success d-flex align-items-center justify-content-center mb-3" style={{ width: '3rem', height: '3rem', borderRadius: '0.5rem' }}>
+                  <TrendingUp size={24} />
+                </div>
+                <h3 className="h5 fw-bold mb-2">Result Oriented</h3>
+                <p className="text-white-50">
+                  We handle everything from branding, design, frontend, backend, development. No multiple vendors, no frontend gaps. One team, one point of contact, seamless execution from concept to launch.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </>
     )
     
 }

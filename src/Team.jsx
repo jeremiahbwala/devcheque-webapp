@@ -1,4 +1,4 @@
-import './index.css';
+import 'bootstrap/dist/css/bootstrap.min.css'
 import React, { useState, useEffect } from 'react';
 import { ChevronLeft, ChevronRight } from 'lucide-react';
 import bolajiImg from './assets/team/Bolaji.jpeg';
@@ -65,113 +65,113 @@ function Team() {
       };
     
     return (
-        <section id="about" className="py-16 px-4 bg-white">
-          <div className="max-w-7xl mx-auto">
-            <h2 className="text-3xl md:text-4xl font-bold text-center mb-12">About us</h2>
-            <div className="md:flex gap-12 items-center mb-16">
-              <div className="md:w-1/2 mb-8 md:mb-0">
-                <h3 className="text-2xl font-bold mb-4">Every great business starts with a vision. Ours started with two developers and one frustrating realization</h3>
-                <p className="text-gray-600 mb-6">
-                  In 2019, Bolaji and Olutade were watching talented African founders struggle, not because their  ideas weren't brilliant, but because they couldn't find developers and designers who actually delivered.
-                  Projects dragged on for months. Communication was spotty. Quality was inconsistent, We knew there had to be a better way. 
-                </p>
-                <p>
-                  DevCheque was built on a simply promise: deliver exceptional digital products, on time and on budget, without the adency BS. No overpromising. No endless revisions. No surprise fees. Just honest work from people who care about your success. <br />
-                  Six years and 50+ projects later, that promises still drives everything we do.
-                </p>
-                <p>
-                  We've helped fintech startups launch MVPs that attracted seed funding. We've redesigned e-commerce platforms that doubled conversion rates. We've built mobile apps that users genuinely love.
-                  But our proudest acheivements aren't just the projects, they're the relationships we've built and the businesses we've helped grow. Today, DevCheque is more than a design and development studio.
-                </p>
-                <button className="text-green-600 font-semibold hover:text-green-700">
-                  Read more ⓘ
-                </button>
-              </div>
-              <div className="md:w-1/2">
-                <div className="bg-gradient-to-br from-yellow-100 to-orange-200 rounded-2xl p-8 h-64 flex items-center justify-center">
-                  <img src="src/assets/About.jpeg" loading='lazy' />
-                </div>
-              </div>
+      <section id="about" className="py-5 bg-white">
+      <div className="container">
+        <h2 className="text-center fw-bold mb-5 display-5">About us</h2>
+
+        {/* About content */}
+        <div className="row align-items-center mb-5">
+          <div className="col-md-6 mb-4 mb-md-0">
+            <h3 className="h4 fw-bold mb-3">
+              Every great business starts with a vision. Ours started with two developers and one frustrating realization
+            </h3>
+            <p className="text-secondary mb-3">
+              In 2019, Bolaji and Olutade were watching talented African founders struggle, not because their ideas weren't brilliant, but because they couldn't find developers and designers who actually delivered. Projects dragged on for months. Communication was spotty. Quality was inconsistent. We knew there had to be a better way.
+            </p>
+            <p className="mb-3">
+              DevCheque was built on a simple promise: deliver exceptional digital products, on time and on budget, without the agency BS. No overpromising. No endless revisions. No surprise fees. Just honest work from people who care about your success. <br />
+              Six years and 50+ projects later, that promise still drives everything we do.
+            </p>
+            <p className="mb-3">
+              We've helped fintech startups launch MVPs that attracted seed funding. We've redesigned e-commerce platforms that doubled conversion rates. We've built mobile apps that users genuinely love. But our proudest achievements aren't just the projects, they're the relationships we've built and the businesses we've helped grow. Today, DevCheque is more than a design and development studio.
+            </p>
+            <button className="btn btn-link text-success fw-semibold p-0">Read more ⓘ</button>
+          </div>
+          <div className="col-md-6">
+            <div className="rounded-3 p-3 d-flex align-items-center justify-content-center" style={{ background: 'linear-gradient(to bottom right, #fff3cd, #ffe5b4)', height: '16rem' }}>
+              <img src="src/assets/About.jpeg" alt="About DevCheque" className="img-fluid" loading="lazy" />
             </div>
+          </div>
+        </div>
 
-            {/* Team Section */}
-            <div className="mb-16">
-              <h3 className="text-2xl md:text-3xl font-bold text-center mb-4">Meet Our Team</h3>
-              <p className="text-center text-gray-600 mb-8">
-                Experienced professionals dedicated to delivering exceptional digital products
-              </p>
-            
-              <div className="relative">
-                <div className="overflow-hidden">
-                  <div 
-                    className="flex transition-transform duration-500 ease-in-out"
-                    style={{ transform: `translateX(-${currentTeamIndex * 100}%)` }}
-                  >
-                    {teamMembers.map((member, index) => (
-                      <div key={index} className="w-full flex-shrink-0 px-2">
-                        <div className="bg-white border-2 border-gray-200 rounded-2xl p-6 shadow-lg max-w-md mx-auto">
-                        <img 
-                          src={member.image} 
-                          alt={member.name} 
-                          className="w-full h-48 object-cover rounded-lg mb-4"
-                        />
+        {/* Team Section */}
+        <div className="mb-5">
+          <h3 className="text-center fw-bold mb-3 h4">Meet Our Team</h3>
+          <p className="text-center text-secondary mb-4">
+            Experienced professionals dedicated to delivering exceptional digital products
+          </p>
 
-                          <div className="flex justify-between items-start mb-3">
-                            <div>
-                              <h4 className="text-xl font-bold">{member.name}</h4>
-                              <p className="text-green-600 font-semibold">{member.role}</p>
-                            </div>
-                            <span className="text-sm text-gray-500">{member.experience}</span>
-                          </div>
-                          <p className="text-gray-600 text-sm mb-4">{member.description}</p>
-                          <div className="mb-4">
-                            <p className="text-sm font-semibold mb-2">Key Skills</p>
-                            <div className="flex flex-wrap gap-2">
-                              {member.skills.map((skill, idx) => (
-                                <span key={idx} className="bg-gray-100 px-3 py-1 rounded-full text-xs">
-                                  {skill}
-                                </span>
-                              ))}
-                            </div>
-                          </div>
-                          <div className="border-t pt-3">
-                            <p className="text-xs text-gray-500">What She Brings:</p>
-                            <p className="text-sm font-medium">{member.expertise}</p>
-                          </div>
+          <div className="position-relative">
+            {/* Team carousel */}
+            <div className="overflow-hidden">
+              <div 
+                className="d-flex transition-transform"
+                style={{ transform: `translateX(-${currentTeamIndex * 100}%)`, transition: 'transform 0.5s ease-in-out' }}
+              >
+                {teamMembers.map((member, index) => (
+                  <div key={index} className="flex-shrink-0 px-2" style={{ minWidth: '100%' }}>
+                    <div className="card border shadow-sm rounded-3 p-3 mx-auto" style={{ maxWidth: '22rem' }}>
+                      <img 
+                        src={member.image} 
+                        alt={member.name} 
+                        className="card-img-top rounded mb-3" 
+                        style={{ height: '12rem', objectFit: 'cover' }}
+                      />
+                      <div className="d-flex justify-content-between align-items-start mb-2">
+                        <div>
+                          <h4 className="h6 fw-bold">{member.name}</h4>
+                          <p className="text-success fw-semibold mb-0">{member.role}</p>
+                        </div>
+                        <span className="text-muted small">{member.experience}</span>
+                      </div>
+                      <p className="text-secondary small mb-2">{member.description}</p>
+                      <div className="mb-2">
+                        <p className="small fw-semibold mb-1">Key Skills</p>
+                        <div className="d-flex flex-wrap gap-1">
+                          {member.skills.map((skill, idx) => (
+                            <span key={idx} className="badge bg-light text-dark">{skill}</span>
+                          ))}
                         </div>
                       </div>
-                    ))}
+                      <div className="border-top pt-2">
+                        <p className="text-muted small mb-1">What She Brings:</p>
+                        <p className="small fw-medium mb-0">{member.expertise}</p>
+                      </div>
+                    </div>
                   </div>
-                </div>
-              
-                <button
-                  onClick={handlePrevTeam}
-                  className="absolute left-0 top-1/2 -translate-y-1/2 bg-white rounded-full p-2 shadow-lg hover:bg-gray-100"
-                >
-                  <ChevronLeft size={24} />
-                </button>
-                <button
-                  onClick={handleNextTeam}
-                  className="absolute right-0 top-1/2 -translate-y-1/2 bg-white rounded-full p-2 shadow-lg hover:bg-gray-100"
-                >
-                  <ChevronRight size={24} />
-                </button>
-              </div>
-
-              <div className="flex justify-center mt-6 gap-2">
-                {teamMembers.map((_, index) => (
-                  <button
-                    key={index}
-                    onClick={() => setCurrentTeamIndex(index)}
-                    className={`w-2 h-2 rounded-full transition-all ${
-                      index === currentTeamIndex ? 'bg-green-500 w-8' : 'bg-gray-300'
-                    }`}
-                  />
                 ))}
               </div>
             </div>
+
+            {/* Carousel navigation */}
+            <button
+              onClick={handlePrevTeam}
+              className="position-absolute top-50 start-0 translate-middle-y btn btn-light rounded-circle shadow-sm"
+            >
+              <ChevronLeft size={24} />
+            </button>
+            <button
+              onClick={handleNextTeam}
+              className="position-absolute top-50 end-0 translate-middle-y btn btn-light rounded-circle shadow-sm"
+            >
+              <ChevronRight size={24} />
+            </button>
           </div>
-        </section>
+
+          {/* Carousel indicators */}
+          <div className="d-flex justify-content-center mt-3 gap-2">
+            {teamMembers.map((_, index) => (
+              <button
+                key={index}
+                onClick={() => setCurrentTeamIndex(index)}
+                className={`rounded-circle border-0 ${index === currentTeamIndex ? 'bg-success' : 'bg-secondary'}`}
+                style={{ width: index === currentTeamIndex ? '2rem' : '0.5rem', height: '0.5rem', transition: 'all 0.3s' }}
+              />
+            ))}
+          </div>
+        </div>
+      </div>
+    </section>
     )
 }
 

@@ -1,8 +1,7 @@
-import './index.css';
+import 'bootstrap/dist/css/bootstrap.min.css';
 import React, { useState, useEffect } from 'react';
 
-function Contactform() {
-  // Form state
+function ContactForm() {
   const [formData, setFormData] = useState({
     fullName: '',
     email: '',
@@ -18,7 +17,6 @@ function Contactform() {
   const [error, setError] = useState(false);
   const [csrfToken, setCsrfToken] = useState("");
 
-  // Fetch CSRF token once on mount
   useEffect(() => {
     async function fetchCsrfToken() {
       try {
@@ -35,7 +33,6 @@ function Contactform() {
     fetchCsrfToken();
   }, []);
 
-  // GET request to pre-fill name/email
   useEffect(() => {
     async function fetchUserData() {
       try {
@@ -54,7 +51,6 @@ function Contactform() {
     fetchUserData();
   }, []);
 
-  // Toggle project types
   const handleProjectTypeToggle = (type) => {
     setFormData(prev => {
       const isSelected = prev.projectTypes.includes(type);
@@ -65,10 +61,9 @@ function Contactform() {
     });
   };
 
-  // Handle form submission
   const handleSubmit = async (e) => {
     e.preventDefault();
-    if (!csrfToken) return; // prevent submit before token is ready
+    if (!csrfToken) return;
 
     try {
       setLoading(true);
@@ -98,7 +93,6 @@ function Contactform() {
       setSuccess(true);
       setError(false);
 
-      // Reset form
       setFormData({
         fullName: '',
         email: '',
@@ -119,42 +113,41 @@ function Contactform() {
   };
 
   return (
-    <section className="py-16 px-4 bg-gray-100">
-      <div className="max-w-3xl mx-auto">
-        <h2 className="text-3xl md:text-4xl font-bold text-center mb-4">Have a great idea?</h2>
-        <p className="text-center text-gray-600 mb-8">
+    <section className="py-5 bg-light">
+      <div className="container" style={{ maxWidth: '42rem' }}>
+        <h2 className="text-center fw-bold mb-3 display-5">Have a great idea?</h2>
+        <p className="text-center text-secondary mb-4">
           Got a great idea that you might want to work out on together? Fill the form below.
         </p>
 
-        <div className="bg-white rounded-2xl shadow-lg p-8">
-
-          {success && <p className="text-green-600 mb-4 font-semibold">Message sent successfully!</p>}
-          {error && <p className="text-red-600 mb-4 font-semibold">Error sending message. Try again.</p>}
+        <div className="card shadow-sm rounded-3 p-4">
+          {success && <div className="alert alert-success">Message sent successfully!</div>}
+          {error && <div className="alert alert-danger">Error sending message. Try again.</div>}
 
           <form onSubmit={handleSubmit}>
-            {/* Name and Email */}
-            <div className="grid md:grid-cols-2 gap-6 mb-6">
-              <div>
-                <label className="block text-sm font-semibold mb-2">
-                  Full Name <span className="text-red-500">*</span>
+            {/* Name & Email */}
+            <div className="row g-3 mb-3">
+              <div className="col-md-6">
+                <label className="form-label">
+                  Full Name <span className="text-danger">*</span>
                 </label>
                 <input
                   type="text"
+                  className="form-control"
                   placeholder="Type here"
-                  className="w-full px-4 py-3 border border-gray-300 rounded-lg"
                   value={formData.fullName}
                   onChange={(e) => setFormData({ ...formData, fullName: e.target.value })}
                   required
                 />
               </div>
-              <div>
-                <label className="block text-sm font-semibold mb-2">
-                  Email <span className="text-red-500">*</span>
+              <div className="col-md-6">
+                <label className="form-label">
+                  Email <span className="text-danger">*</span>
                 </label>
                 <input
                   type="email"
+                  className="form-control"
                   placeholder="Type here"
-                  className="w-full px-4 py-3 border border-gray-300 rounded-lg"
                   value={formData.email}
                   onChange={(e) => setFormData({ ...formData, email: e.target.value })}
                   required
@@ -163,71 +156,72 @@ function Contactform() {
             </div>
 
             {/* Company */}
-            <div className="mb-6">
-              <label className="block text-sm font-semibold mb-2">Company/Organization (optional)</label>
+            <div className="mb-3">
+              <label className="form-label">Company/Organization (optional)</label>
               <input
                 type="text"
+                className="form-control"
                 placeholder="Type here"
-                className="w-full px-4 py-3 border border-gray-300 rounded-lg"
                 value={formData.company}
                 onChange={(e) => setFormData({ ...formData, company: e.target.value })}
               />
             </div>
 
-            {/* Project Type */}
-            <div className="mb-6">
-              <label className="block text-sm font-semibold mb-2">Project Type</label>
-              <div className="grid grid-cols-2 gap-4">
+            {/* Project Types */}
+            <div className="mb-3">
+              <label className="form-label">Project Type</label>
+              <div className="d-flex flex-wrap gap-3">
                 {["Web Design", "Branding", "Mobile App Design", "Others"].map((type) => (
-                  <label key={type} className="flex items-center space-x-2 cursor-pointer">
+                  <div className="form-check" key={type}>
                     <input
+                      className="form-check-input"
                       type="checkbox"
                       checked={formData.projectTypes.includes(type)}
                       onChange={() => handleProjectTypeToggle(type)}
-                      className="w-4 h-4"
+                      id={type}
                     />
-                    <span>{type}</span>
-                  </label>
+                    <label className="form-check-label" htmlFor={type}>{type}</label>
+                  </div>
                 ))}
               </div>
             </div>
 
             {/* Budget */}
-            <div className="mb-6">
-              <label className="block text-sm font-semibold mb-2">Project Budget</label>
-              <p className="text-xs text-gray-500 mb-3">Slide to indicate your budget</p>
+            <div className="mb-3">
+              <label className="form-label">Project Budget</label>
+              <p className="small text-muted mb-2">Slide to indicate your budget</p>
               <input
                 type="range"
+                className="form-range"
                 min="5000"
                 max="25000"
                 step="1000"
                 value={formData.budget}
                 onChange={(e) => setFormData({ ...formData, budget: parseInt(e.target.value) })}
-                className="w-full h-2 bg-green-200 rounded-lg cursor-pointer"
               />
-              <div className="flex justify-between text-sm text-gray-600 mt-2">
+              <div className="d-flex justify-content-between small text-muted">
                 <span>${formData.budget.toLocaleString()}</span>
-                <span>$25000</span>
+                <span>$25,000</span>
               </div>
             </div>
 
             {/* Message */}
-            <div className="mb-6">
-              <label className="block text-sm font-semibold mb-2">Message</label>
+            <div className="mb-3">
+              <label className="form-label">Message</label>
               <textarea
-                placeholder="Type here"
+                className="form-control"
                 rows="4"
-                className="w-full px-4 py-3 border border-gray-300 rounded-lg"
+                placeholder="Type here"
                 value={formData.message}
                 onChange={(e) => setFormData({ ...formData, message: e.target.value })}
               ></textarea>
             </div>
 
-            {/* Submit Button */}
+            {/* Submit */}
             <button
               type="submit"
-              className="w-full bg-green-600 text-white py-3 rounded-lg font-semibold hover:bg-green-700"
-              disabled={loading || !csrfToken}
+              className="btn btn-success w-100"
+              disabled={loading}
             >
               {loading ? "Sending..." : "Submit"}
             </button>
@@ -238,4 +232,4 @@ function Contactform() {
   );
 }
 
-export default Contactform;
+export default ContactForm;

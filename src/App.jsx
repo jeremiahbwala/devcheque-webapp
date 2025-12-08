@@ -1,53 +1,65 @@
-import './index.css';
-import React, { useState, useEffect } from 'react';
-import { Rocket, Users, Award, Star, CheckCircle, Code, Smartphone, Palette, TrendingUp, ChevronLeft, ChevronRight, Menu, X } from 'lucide-react';
+import 'bootstrap/dist/css/bootstrap.min.css';
+import React, { useState } from 'react';
+import { Menu, X } from 'lucide-react';
+import logo from "./assets/image 1.png"; // import your logo properly
 
 function DevChequeWebsite() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+
   return (
-      <div className="min-h-screen bg-gray-50">
-        {/* Navigation */}
-        <nav className="bg-white shadow-sm fixed w-full top-0 z-50">
-          <div className="max-w-ss7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="flex justify-between items-center h-16">
-              <div className="flex items-center space-x-2">
-                <div className="w-8 h-8 bg-green-500 rounded"></div>
-                <img src="src/assets/image 1.png" loading="lazy" />
-              </div>
-            
-              <div className="hidden md:flex space-x-8">
-                <a href="#about" className="text-gray-700 hover:text-green-500">About us</a>
-                <a href="#projects" className="text-gray-700 hover:text-green-500">Projects</a>
-                <a href="#services" className="text-gray-700 hover:text-green-500">Services</a>
-                <a href="#work" className="text-gray-700 hover:text-green-500">How we work</a>
-              </div>
+    <div>
 
-              <button className="hidden md:block bg-green-500 text-white px-6 py-2 rounded-lg hover:bg-green-600">
+      {/* Navigation */}
+      <nav className="navbar navbar-expand-md bg-white shadow-sm fixed-top py-3">
+        <div className="container d-flex justify-content-between align-items-center">
+
+          {/* LEFT SIDE NAV LINKS (Desktop only) */}
+          <div className="d-none d-md-flex gap-4">
+            <a href="#about" className="text-primary text-decoration-none">About us</a>
+            <a href="#projects" className="text-primary text-decoration-none">Projects</a>
+            <a href="#services" className="text-primary text-decoration-none">Services</a>
+            <a href="#work" className="text-primary text-decoration-none">How we work</a>
+
+          </div>
+
+          {/* MOBILE TOGGLE BUTTON (Hamburger) */}
+          <button
+            className="navbar-toggler border-0 d-md-none"
+            type="button"
+            onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+          >
+            {mobileMenuOpen ? <X /> : <Menu />}
+          </button>
+
+          {/* LOGO - Always on the RIGHT */}
+          <img
+            src={logo}
+            alt="DevCheque Logo"
+            style={{ height: "40px", objectFit: "contain" }}
+          />
+
+        </div>
+
+        {/* MOBILE MENU DROPDOWN */}
+        {mobileMenuOpen && (
+          <div className="bg-white border-top d-md-none">
+            <div className="p-3 d-flex flex-column gap-3">
+              <a href="#about" className="text-primary text-decoration-none">About us</a>
+              <a href="#projects" className="text-primary text-decoration-none">Projects</a>
+              <a href="#services" className="text-primary text-decoration-none">Services</a>
+              <a href="#work" className="text-primary text-decoration-none">How we work</a>
+
+              <button className="btn btn-success w-100">
                 Start Your Project
-              </button>
-
-              <button className="md:hidden" onClick={() => setMobileMenuOpen(!mobileMenuOpen)}>
-                {mobileMenuOpen ? <X /> : <Menu />}
               </button>
             </div>
           </div>
+        )}
 
-          {mobileMenuOpen && (
-            <div className="md:hidden bg-white border-t">
-              <div className="px-4 py-4 space-y-3">
-                <a href="#about" className="block text-gray-700">About us</a>
-                <a href="#projects" className="block text-gray-700">Projects</a>
-                <a href="#services" className="block text-gray-700">Services</a>
-                <a href="#work" className="block text-gray-700">How we work</a>
-                <button className="w-full bg-green-500 text-white px-6 py-2 rounded-lg">
-                  Start Your Project
-                </button>
-              </div>
-            </div>
-          )}
-        </nav> 
-      </div>
-    );
+      </nav>
+
+    </div>
+  );
 }
 
 export default DevChequeWebsite;

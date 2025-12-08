@@ -1,59 +1,76 @@
-import './index.css';
-import React, { useState, useEffect } from 'react';
-import { Rocket, Users, Award, Star, CheckCircle, Code, Smartphone, Palette, TrendingUp, ChevronLeft, ChevronRight, Menu, X } from 'lucide-react';
+import 'bootstrap/dist/css/bootstrap.min.css';
+import React from 'react';
+import { Rocket, Users, Award, Star } from 'lucide-react';
 
 function Hero() {
   return (
     <>
-      <section className="pt-24 pb-16 px-4 bg-gradient-to-br from-gray-900 to-green-900 text-white">
-        <div className="max-w-7xl mx-auto text-center">
-          <p className="text-sm uppercase tracking-wide mb-4">Design.Develop.Deploy</p>
-          <h1 className="text-4xl md:text-6xl font-bold mb-6">
-            Get Your Product Launched in <span className="text-green-400">Weeeks</span>
+      {/* Hero Section */}
+      <section className="py-5 text-white" style={{ background: 'linear-gradient(to bottom right, #212529, #198754)' }}>
+        <div className="container text-center">
+          <p className="text-uppercase small mb-3">Design.Develop.Deploy</p>
+          <h1 className="fw-bold mb-3 display-4 text-success">
+            Get Your Product Launched in <span className="text-success">Weeeks</span>
           </h1>
-          <p className="text-lg md:text-xl mb-8 max-w-3xl mx-auto">
+          <p className="lead mb-4 mx-auto" style={{ maxWidth: '700px' }}>
             DevCheque is your full-stack team for digital products that ship.
-            From branding to UI/UX and development, we handle it all. Launch faster with top-tier quality
+            From branding to UI/UX and development, we handle it all. Launch faster with top-tier quality.
           </p>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center mb-12">
-            <button className="bg-green-500 text-white px-8 py-3 rounded-lg hover:bg-green-600">
+
+          <div className="d-flex flex-column flex-sm-row justify-content-center gap-3 mb-5">
+            <button className="btn btn-success btn-lg rounded-3">
               Start Your Project →
             </button>
-            <button className="bg-white text-gray-900 px-8 py-3 rounded-lg hover:bg-gray-100">
+            <button className="btn btn-light btn-lg rounded-3 text-dark">
               View Our Work →
             </button>
           </div>
-          <div className="relative h-64 md:h-96">
-            <div className="absolute inset-0 flex items-center justify-center">
-              <div className="w-full max-w-2xl h-48 bg-gradient-to-r from-green-400 to-green-600 rounded-3xl transform rotate-3 opacity-80"></div>
+
+          {/* Decorative box */}
+          <div className="position-relative" style={{ height: '16rem' }}>
+            <div className="position-absolute top-50 start-50 translate-middle w-100" style={{ maxWidth: '32rem', height: '12rem' }}>
+              <div
+                className="rounded-3"
+                style={{
+                  background: 'linear-gradient(to right, #198754, #0f5132)',
+                  transform: 'rotate(3deg)',
+                  opacity: 0.8,
+                  width: '100%',
+                  height: '100%',
+                }}
+              ></div>
             </div>
           </div>
         </div>
       </section>
 
-      <section className="py-12 bg-green-50">
-        <div className="max-w-7xl mx-auto px-4">
-          <p className="text-center text-gray-600 mb-8">Trusted by 50+ startups and businesses across Africa</p>
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
-            <div>
-              <Rocket className="mx-auto mb-2 text-green-600" size={32} />
-              <p className="text-sm text-gray-600">Project Delivered</p>
-              <p className="text-3xl font-bold text-gray-900">50+</p>
+      {/* Stats Section */}
+      <section className="py-5 bg-light">
+        <div className="container text-center">
+          <p className="text-secondary mb-4">
+            Trusted by 50+ startups and businesses across Africa
+          </p>
+
+          <div className="row row-cols-2 row-cols-md-4 g-4 text-center">
+            <div className="col">
+              <Rocket className="mb-2 text-success" size={32} />
+              <p className="small text-secondary mb-1">Project Delivered</p>
+              <p className="h3 fw-bold text-dark">50+</p>
             </div>
-            <div>
-              <Users className="mx-auto mb-2 text-green-600" size={32} />
-              <p className="text-sm text-gray-600">Satisfied Client</p>
-              <p className="text-3xl font-bold text-gray-900">98%</p>
+            <div className="col">
+              <Users className="mb-2 text-success" size={32} />
+              <p className="small text-secondary mb-1">Satisfied Client</p>
+              <p className="h3 fw-bold text-dark">98%</p>
             </div>
-            <div>
-              <Award className="mx-auto mb-2 text-green-600" size={32} />
-              <p className="text-sm text-gray-600">Years Experience</p>
-              <p className="text-3xl font-bold text-gray-900">6 yrs</p>
+            <div className="col">
+              <Award className="mb-2 text-success" size={32} />
+              <p className="small text-secondary mb-1">Years Experience</p>
+              <p className="h3 fw-bold text-dark">6 yrs</p>
             </div>
-            <div>
-              <Star className="mx-auto mb-2 text-green-600" size={32} />
-              <p className="text-sm text-gray-600">Rating</p>
-              <p className="text-3xl font-bold text-gray-900">4.9</p>
+            <div className="col">
+              <Star className="mb-2 text-success" size={32} />
+              <p className="small text-secondary mb-1">Rating</p>
+              <p className="h3 fw-bold text-dark">4.9</p>
             </div>
           </div>
         </div>
