@@ -6,23 +6,35 @@ function Testimonials() {
     return (
         <>
       {/* Testimonials */}
-      <section className="py-5 bg-light">
+      <section className="py-5 bg-green-400 p-3">
         <div className="container">
           <p className="text-success fw-semibold text-center mb-2">Testimonial</p>
           <h2 className="text-center fw-bold mb-5 display-5">What our clients say</h2>
 
           <div className="row g-4">
-            {/* Testimonial 1 */}
+          {/* Testimonial 1 */}
             <div className="col-md-6">
               <div className="card shadow-sm p-4 h-100">
                 <div className="text-success display-4 mb-3">"</div>
                 <p className="text-secondary mb-4">
                   Before DevCheque, our program was chaotic and hard to scale. The app they built modernized everything—personalized workouts, smooth tracking, higher engagement, and triple retention. They didn't just build an app; they strengthened our entire business.
                 </p>
+
                 <div className="d-flex align-items-center">
-                  <div className="bg-secondary rounded-circle me-3" style={{ width: '3rem', height: '3rem' }}></div>
+                {/* Image wrapper */}
+                  <div
+                    className="rounded-circle overflow-hidden me-3"
+                    style={{ width: "3rem", height: "3rem" }}
+                  >
+                    <img
+                      src="src/assets/Olumide.jpg"
+                      alt="Olumide"
+                      style={{ width: "100%", height: "100%", objectFit: "cover" }}
+                    />
+                  </div>
+
                   <div>
-                    <p className="fw-bold mb-1">Michael Reeves</p>
+                    <p className="fw-bold mb-1">Olumide Adebayo</p>
                     <div className="d-flex text-warning">
                       {[...Array(5)].map((_, i) => (
                         <Star key={i} size={16} fill="currentColor" />
@@ -40,10 +52,22 @@ function Testimonials() {
                 <p className="text-secondary mb-4">
                   Our old brand made us look smaller than we were. DevCheque fixed that with a modern identity and a website built for enterprise clients. Clear messaging and confident visuals improved our credibility, and within weeks it qualified leads grew. They truly elevated our business for good.
                 </p>
+
                 <div className="d-flex align-items-center">
-                  <div className="bg-secondary rounded-circle me-3" style={{ width: '3rem', height: '3rem' }}></div>
+                {/* Image wrapper */}
+                  <div
+                    className="rounded-circle overflow-hidden me-3"
+                    style={{ width: "3rem", height: "3rem" }}
+                  >
+                    <img
+                      src="src/assets/Zanele.jpg"
+                      alt="Zanele"
+                      style={{ width: "100%", height: "100%", objectFit: "cover" }}
+                    />
+                  </div>
+
                   <div>
-                    <p className="fw-bold mb-1">Damilola Grant</p>
+                    <p className="fw-bold mb-1">Zanele Khumalo</p>
                     <div className="d-flex text-warning">
                       {[...Array(4)].map((_, i) => (
                         <Star key={i} size={16} fill="currentColor" />
@@ -62,7 +86,7 @@ function Testimonials() {
       <section id="work" className="py-5 bg-white">
         <div className="container">
           <h2 className="text-center fw-bold mb-5 display-5">
-            How development through DevCheque works
+            How we work
           </h2>
 
           <div className="row g-4">

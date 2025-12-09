@@ -5,7 +5,6 @@ function Services() {
     return (
       <section id="services" className="py-5 bg-light">
       <div className="container">
-        <p className="text-success fw-semibold text-center mb-2">WHAT WE DO</p>
         <h2 className="text-center fw-bold mb-3 display-5">Our Services</h2>
         <p className="text-center text-secondary mb-5">
           Comprehensive digital solutions tailored to bring your vision to life

@@ -12,7 +12,7 @@ function Hero() {
           <h1 className="fw-bold mb-3 display-4 text-success">
             Get Your Product Launched in <span className="text-success">Weeeks</span>
           </h1>
-          <p className="lead mb-4 mx-auto" style={{ maxWidth: '700px' }}>
+          <p className="lead mb-4 mx-auto font-archivo" style={{ maxWidth: '700px' }}>
             DevCheque is your full-stack team for digital products that ship.
             From branding to UI/UX and development, we handle it all. Launch faster with top-tier quality.
           </p>
@@ -38,7 +38,7 @@ function Hero() {
                   width: '100%',
                   height: '100%',
                 }}
-              ></div>
+              ><img src="src/assets/bgimage.jpg" alt="About DevCheque" className="img-fluid" loading="lazy" /></div>
             </div>
           </div>
         </div>

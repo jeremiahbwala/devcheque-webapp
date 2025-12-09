@@ -2,7 +2,6 @@ import { StrictMode } from 'react'
 import { createRoot } from 'react-dom/client'
 import 'bootstrap/dist/css/bootstrap.min.css'
 import Devchequewebsite from './App.jsx'
-import Hero from './Hero.jsx'
 import Services from './Services'
 import Team from './Team'
 import FAQ from './FAQ'
@@ -14,7 +13,6 @@ import Testimonials from './Testimonials'
 createRoot(document.getElementById('root')).render(
   <StrictMode>
     <Devchequewebsite />
-    <Hero />
     <CaseStudy />
     <Testimonials />
     <Services />
