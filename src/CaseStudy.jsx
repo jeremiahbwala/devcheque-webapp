@@ -86,7 +86,7 @@ function CaseStudy() {
       <section className="py-5 bg-dark text-white">
         <div className="container">
 
-          <h2 className="text-center fw-bold mb-3 display-5">Why Work With DevCheque?</h2>
+          <h2 className="text-center fw-bold mb-3 display-5 text-black">Why Work With DevCheque?</h2>
           <p className="text-center text-secondary mb-5">
             What makes us different from other agencies
           </p>
@@ -123,7 +123,7 @@ function CaseStudy() {
               </div>
             </div>
 
-            <div className="col-md-4">
+            <div className="col-md-4 align-items-center justify-content-center">
               <div className="card bg-secondary text-white h-100 p-3 rounded-3">
                 <div
                   className="bg-success d-flex align-items-center justify-content-center mb-3"

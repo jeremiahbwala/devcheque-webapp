@@ -17,7 +17,7 @@ function Team() {
           image: bolajiImg, 
           description: 'Seasoned product designer and team leader who turns complex problems into elegant user experiences. He ensures every design decision aligns with user needs and business goals.',
           skills: ['Product Design', 'Ux Strategy', 'Design System', 'Prototyping'],
-          expertise: 'Great code and artwork, innovative'
+          expertise: 'Clean code and smooth, accessible interactions.'
         },
         {
           name: 'Olutade',
@@ -26,16 +26,16 @@ function Team() {
           image: olutadeImg,
           description: 'Olutade builds scalable and reliable digital products with clean engineering practices. He skills as a digital between design and development, ensuring seamless execution.',
           skills: ['Frontend Development', 'React', 'Custom Architecture'],
-          expertise: 'High quality builds delivered with expertise promised'
+          expertise: 'High quality builds delivered with technical precision.'
         },
         {
           name: 'Fortune',
-          role: 'Team Lead',
-          experience: '6+ years',
+          role: 'Product Designer',
+          experience: '4+ years',
           image: fortuneImg,
           description: 'Fortune blends creativity with precision to craft beautiful, intuitive user experiences. She highlights ideas into digital products that users love and businesses grow with.',
-          skills: ['Sales', 'Wordsmithing', 'Visual Design', 'Interaction Design', 'Prototyping'],
-          expertise: 'Seasoned mix of keen saleswomanship and quality'
+          skills: ['UI', 'Wireframing', 'Visual Design', 'Interaction Design', 'Prototyping'],
+          expertise: 'A balanced mix of visual excellence and usability.'
         },
         {
           name: 'Chidera',
@@ -43,7 +43,7 @@ function Team() {
           experience: '4+ years',
           image: chideraImg,
           description: 'Chidera takes user-focused design approaches bringing strategic thinking and creative visual interfaces that resonate with audiences.',
-          skills: ['Strategy', 'Ux Architecture'],
+          skills: ['Webflow','Strategy', 'Css Architecture'],
           expertise: 'Strategic thinking'
         }
       ];
@@ -70,26 +70,48 @@ function Team() {
         <h2 className="text-center fw-bold mb-5 display-5">About us</h2>
 
         {/* About content */}
-        <div className="row align-items-center mb-5">
-          <div className="col-md-6 mb-4 mb-md-0">
-            <h3 className="h4 fw-bold mb-3">
-              Every great business starts with a vision. Ours started with two developers and one frustrating realization
-            </h3>
-            <p className="text-secondary mb-3">
-              In 2019, Bolaji and Olutade were watching talented African founders struggle, not because their ideas weren't brilliant, but because they couldn't find developers and designers who actually delivered. Projects dragged on for months. Communication was spotty. Quality was inconsistent. We knew there had to be a better way.
-            </p>
-            <p className="mb-3">
-              DevCheque was built on a simple promise: deliver exceptional digital products, on time and on budget, without the agency BS. No overpromising. No endless revisions. No surprise fees. Just honest work from people who care about your success. <br />
-              Six years and 50+ projects later, that promise still drives everything we do.
-            </p>
-            <p className="mb-3">
-              We've helped fintech startups launch MVPs that attracted seed funding. We've redesigned e-commerce platforms that doubled conversion rates. We've built mobile apps that users genuinely love. But our proudest achievements aren't just the projects, they're the relationships we've built and the businesses we've helped grow. Today, DevCheque is more than a design and development studio.
-            </p>
-            <button className="btn btn-link text-success fw-semibold p-0">Read more ⓘ</button>
+        <div className="row mb-5">
+          {/* TEXT SIDE */}
+          <div className="col-md-6 d-flex flex-column justify-content-center">
+            <div>
+              <p className="text-secondary mb-3">
+                Every great business starts with a vision. Ours started with two developers and one frustrating realization
+              </p>
+
+              <p className="text-secondary mb-3">
+                In 2019, Bolaji and Olutade were watching talented African founders struggle, not because their ideas weren't brilliant,
+                but because they couldn't find developers and designers who actually delivered...
+              </p>
+
+              <p className="mb-3">
+                DevCheque was built on a simple promise: deliver exceptional digital products, on time and on budget...
+              </p>
+
+              <p className="mb-3">
+                We've helped fintech startups launch MVPs… but our proudest achievements are the relationships we've built.
+              </p>
+
+              <button className="btn btn-link text-success fw-semibold p-0">Read more ⓘ</button>
+            </div>
           </div>
-          <div className="col-md-6">
-            <div className="rounded-3 p-3 d-flex align-items-center justify-content-center" style={{ background: 'linear-gradient(to bottom right, #fff3cd, #ffe5b4)', height: '16rem' }}>
-              <img src="src/assets/About.jpeg" alt="About DevCheque" className="img-fluid" loading="lazy" />
+
+          {/* IMAGE SIDE */}
+          <div className="col-md-6 d-flex">
+            <div
+              className="rounded-3 w-100 p-3 d-flex align-items-center justify-content-center bg-light"
+              style={{
+                border: "1px solid #eee",
+                height: "320px" // 👈 REDUCED HEIGHT
+              }}
+            >
+              <img
+                src="src/assets/About.jpeg"
+                alt="About DevCheque"
+                className="img-fluid rounded-3 h-100 w-100"
+                style={{
+                  objectFit: "cover",
+                }}
+              />
             </div>
           </div>
         </div>
