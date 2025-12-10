@@ -6,7 +6,7 @@ function Testimonials() {
     return (
         <>
       {/* Testimonials */}
-      <section className="py-5 bg-green-400 p-3">
+      <section className="p-3 font-archivo" style={{backgroundColor: '#90ee90'}}>
         <div className="container">
           <p className="text-success fw-semibold text-center mb-2">Testimonial</p>
           <h2 className="text-center fw-bold mb-5 display-5">What our clients say</h2>
@@ -15,12 +15,16 @@ function Testimonials() {
           {/* Testimonial 1 */}
             <div className="col-md-6">
               <div className="card shadow-sm p-4 h-100">
-                <div className="text-success display-4 mb-3">"</div>
-                <p className="text-secondary mb-4">
+                <div className="text-success text-center display-4 mb-3">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="60" height="60" fill="currentColor" class="bi bi-quote" viewBox="0 0 16 16">
+                    <path d="M12 12a1 1 0 0 0 1-1V8.558a1 1 0 0 0-1-1h-1.388q0-.527.062-1.054.093-.558.31-.992t.559-.683q.34-.279.868-.279V3q-.868 0-1.52.372a3.3 3.3 0 0 0-1.085.992 4.9 4.9 0 0 0-.62 1.458A7.7 7.7 0 0 0 9 7.558V11a1 1 0 0 0 1 1zm-6 0a1 1 0 0 0 1-1V8.558a1 1 0 0 0-1-1H4.612q0-.527.062-1.054.094-.558.31-.992.217-.434.559-.683.34-.279.868-.279V3q-.868 0-1.52.372a3.3 3.3 0 0 0-1.085.992 4.9 4.9 0 0 0-.62 1.458A7.7 7.7 0 0 0 3 7.558V11a1 1 0 0 0 1 1z"/>
+                  </svg>
+                </div>
+                <p className="text-black mb-4">
                   Before DevCheque, our program was chaotic and hard to scale. The app they built modernized everything—personalized workouts, smooth tracking, higher engagement, and triple retention. They didn't just build an app; they strengthened our entire business.
                 </p>
 
-                <div className="d-flex align-items-center">
+                <div className="d-flex align-items-center justify-content-center">
                 {/* Image wrapper */}
                   <div
                     className="rounded-circle overflow-hidden me-3"
@@ -48,12 +52,16 @@ function Testimonials() {
             {/* Testimonial 2 */}
             <div className="col-md-6">
               <div className="card shadow-sm p-4 h-100">
-                <div className="text-success display-4 mb-3">"</div>
-                <p className="text-secondary mb-4">
+                <div className="text-success text-center display-4 mb-3">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="60" height="60" fill="currentColor" class="bi bi-quote" viewBox="0 0 16 16">
+                    <path d="M12 12a1 1 0 0 0 1-1V8.558a1 1 0 0 0-1-1h-1.388q0-.527.062-1.054.093-.558.31-.992t.559-.683q.34-.279.868-.279V3q-.868 0-1.52.372a3.3 3.3 0 0 0-1.085.992 4.9 4.9 0 0 0-.62 1.458A7.7 7.7 0 0 0 9 7.558V11a1 1 0 0 0 1 1zm-6 0a1 1 0 0 0 1-1V8.558a1 1 0 0 0-1-1H4.612q0-.527.062-1.054.094-.558.31-.992.217-.434.559-.683.34-.279.868-.279V3q-.868 0-1.52.372a3.3 3.3 0 0 0-1.085.992 4.9 4.9 0 0 0-.62 1.458A7.7 7.7 0 0 0 3 7.558V11a1 1 0 0 0 1 1z"/>
+                  </svg>
+                </div>
+                <p className="text-black mb-4">
                   Our old brand made us look smaller than we were. DevCheque fixed that with a modern identity and a website built for enterprise clients. Clear messaging and confident visuals improved our credibility, and within weeks it qualified leads grew. They truly elevated our business for good.
                 </p>
 
-                <div className="d-flex align-items-center">
+                <div className="d-flex align-items-center justify-content-center">
                 {/* Image wrapper */}
                   <div
                     className="rounded-circle overflow-hidden me-3"

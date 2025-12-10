@@ -28,7 +28,7 @@ function DevChequeWebsite() {
 
             {/* CTA Button Desktop */}
             <button className="btn btn-success rounded-pill px-4 d-none d-lg-block font-archivo">
-              Start Your Project
+              <a href="#contactForm" className='text-decoration-none'>Start Your Project</a>
             </button>
 
             {/* Mobile Toggle */}
@@ -58,76 +58,77 @@ function DevChequeWebsite() {
       </nav>
 
       {/* Hero Section */}
-      {/* Hero Section */}
-<section 
-  className="position-relative overflow-hidden"
-  style={{ 
-    backgroundImage: `url('src/assets/background1.png.jpg')`,
-    backgroundSize: 'cover',
-    backgroundPosition: 'center',
-    backgroundRepeat: 'no-repeat',
-    backgroundColor: '#0a1f1a', // fallback color
-    minHeight: '100vh',
-    paddingTop: '100px',
-    paddingBottom: '80px'
-  }}
->
-  <div className="container position-relative">
-    <div className="text-center text-white" style={{ maxWidth: '900px', margin: '0 auto' }}>
-      {/* Tagline */}
-      <p style={{ letterSpacing: '2px', fontSize: '40px', fontFamily: '-apple-system' }}>
-        Design.Develop.Deploy
-      </p>
+      <section 
+        className="position-relative overflow-hidden"
+        style={{ 
+          backgroundImage: `url('src/assets/background1.png.jpg')`,
+          backgroundSize: 'cover',
+          backgroundPosition: 'center',
+          backgroundRepeat: 'no-repeat',
+          backgroundColor: '#0a1f1a', // fallback color
+          minHeight: '100vh',
+          paddingTop: '100px',
+          paddingBottom: '80px'
+        }}
+      >
+        <div className="container position-relative">
+          <div className="text-center text-white" style={{ maxWidth: '900px', margin: '0 auto' }}>
+            {/* Tagline */}
+            <p style={{ letterSpacing: '2px', fontSize: '40px', fontFamily: '-apple-system' }}>
+              Design.Develop.Deploy
+            </p>
 
-      {/* Main Heading */}
-      <h1 className="display-3 fw-bold mb-4 font-archivo" style={{ lineHeight: '1.2' }}>
-        <span className="text-light-green">Get Your </span>
-        <span className="text-light-green">Product Launched</span>
-        <span className="text-light-green"> in </span>
-        <span className="text-light-green">Weeeks</span>
-      </h1>
+            {/* Main Heading */}
+            <h1 className="display-3 fw-bold mb-4 font-archivo" style={{ lineHeight: '1.2' }}>
+              <span className="text-light-green">Get Your </span>
+              <span className="text-light-green">Product Launched</span>
+              <span className="text-light-green"> in </span>
+              <span className="text-light-green">Weeeks</span>
+            </h1>
 
-      {/* Description */}
-      <p style={{ maxWidth: '750px', fontSize: '18px', lineHeight: '1.7', margin: '0 auto' }}>
-        DevCheque is your full-stack team for digital products that ship.<br />
-        From branding to UI/UX and development, we handle it all. Launch faster with top-tier quality
-      </p>
+            {/* Description */}
+            <p style={{ maxWidth: '750px', fontSize: '18px', lineHeight: '1.7', margin: '0 auto' }}>
+              DevCheque is your full-stack team for digital products that ship.<br />
+              From branding to UI/UX and development, we handle it all. Launch faster with top-tier quality
+            </p>
 
-      {/* CTA Buttons */}
-      <div className="d-flex flex-column flex-sm-row justify-content-center gap-3 mt-4">
-        <button 
-          className="btn btn-success btn-lg px-5 rounded-pill d-inline-flex align-items-center justify-content-center"
-          style={{ fontSize: '16px', fontWeight: '500' }}
-        >
-          Start Your Project
-          <span className="ms-2">→</span>
-        </button>
-        <button 
-          className="btn btn-outline-light btn-lg px-5 rounded-pill d-inline-flex align-items-center justify-content-center"
-          style={{ fontSize: '16px', fontWeight: '500' }}
-        >
-          View Our Work
-          <span className="ms-2">→</span>
-        </button>
-      </div>
-    </div>
-  </div>
-</section>
+            {/* CTA Buttons */}
+            <div className="d-flex flex-column flex-sm-row justify-content-center gap-3 mt-4">
+              <button 
+                href=""
+                className="btn btn-success btn-lg px-5 rounded-pill d-inline-flex align-items-center justify-content-center"
+                style={{ fontSize: '16px', fontWeight: '500' }}
+              >
+                Start Your Project
+                <span className="ms-2">→</span>
+              </button>
+              <button 
+                className="btn btn-outline-light btn-lg px-5 rounded-pill d-inline-flex align-items-center justify-content-center"
+                style={{ fontSize: '16px', fontWeight: '500' }}
+              >
+                View Our Work
+                <span className="ms-2">→</span>
+              </button>
+            </div>
+            <img src="src/assets/bgimage.jpg" alt="photo" />
+          </div>
+        </div>
+      </section>
 
 
       {/* Stats Section */}
-      <section className="bg-light-green p-3 font-archivo">
-        <div className="container">
+      <section className="p-3 font-archivo" style={{backgroundColor: '#90ee90'}}>
+        <div className="container" style={{backgroundColor: '#90ee90'}}>
           <p className="text-center text-black mb-4">
             Trusted by <span className="text-success">50+</span> startups and businesses across Africa
           </p>
 
-          <div className="row g-4 text-center font-archivo">
+          <div className="row g-4 text-center font-archivo" style={{backgroundColor: '#90ee90'}}>
             <div className="col-6 col-md-3">
               <div className="p-3">
                 <Rocket className="mb-3 text-success" size={40} strokeWidth={1.5} />
                 <p className="small text-black mb-2">Project Delivered</p>
-                <h3 className="fw-bold text-dark mb-0">50+</h3>
+                <h3 className="fw-bold text-success mb-0">50+</h3>
               </div>
             </div>
             <div className="col-6 col-md-3">

@@ -161,13 +161,10 @@ function ContactForm() {
   };
 
   return (
-    <section className="py-5 bg-light">
+    <section id='contactForm' className="py-5" style={{backgroundColor: '#90ee90'}}>
       <div className="container" style={{ maxWidth: '42rem' }}>
-        <h2 className="text-center fw-bold mb-3 display-5">Have a great idea?</h2>
-        <p className="text-center text-secondary mb-4">
-          Got a great idea that you might want to work out on together? Fill the form below.
-        </p>
-
+        <h2 className=" text-center text-black fw-bold mb-3 display-5">Let's Talk About Your Project</h2>
+      
         <div className="card shadow-sm rounded-3 p-4">
           {success && (
             <div className="alert alert-success alert-dismissible fade show" role="alert">
@@ -187,7 +184,7 @@ function ContactForm() {
             <div className="row g-3 mb-3">
               <div className="col-md-6">
                 <label className="form-label">
-                  Full Name <span className="text-danger">*</span>
+                  Full Name <span className="text-danger">(Required)</span>
                 </label>
                 <input
                   type="text"
@@ -200,7 +197,7 @@ function ContactForm() {
               </div>
               <div className="col-md-6">
                 <label className="form-label">
-                  Email <span className="text-danger">*</span>
+                  Email <span className="text-danger">(Required)</span>
                 </label>
                 <input
                   type="email"
@@ -215,7 +212,7 @@ function ContactForm() {
 
             {/* Company */}
             <div className="mb-3">
-              <label className="form-label">Company/Organization (optional)</label>
+              <label className="form-label">Company/Organization <span className='text-danger'> (optional)</span></label>
               <input
                 type="text"
                 className="form-control"
@@ -272,6 +269,11 @@ function ContactForm() {
                 placeholder="Type here"
                 value={formData.message}
                 onChange={(e) => setFormData({ ...formData, message: e.target.value })}
+                style={{
+                  backgroundImage: 'linear-gradient(transparent, transparent 39px, #ccc 39px, #ccc 40px)',
+                  backgroundSize: '100% 40px',
+                  lineHeight: '40px'
+                }}
               ></textarea>
             </div>
 
@@ -289,7 +291,7 @@ function ContactForm() {
             {/* Submit Button */}
             <button
               type="button"
-              className="btn btn-success w-100"
+              className="btn btn-success w-50"
               onClick={handleSubmit}
               disabled={loading}
             >
@@ -304,6 +306,7 @@ function ContactForm() {
             </button>
           </div>
         </div>
+        <p className='text-center text-black'>We respect your privacy and we respond between 24 hrs</p>
       </div>
     </section>
   );

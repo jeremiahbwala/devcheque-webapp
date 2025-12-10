@@ -15,8 +15,8 @@ function Team() {
           role: 'Team Lead',
           experience: '3+ years',
           image: bolajiImg, 
-          description: 'Seasoned product designer and team leader who turns complex problems into elegant user experiences. He ensures every design decision aligns with user needs and business goals.',
-          skills: ['Product Design', 'Ux Strategy', 'Design System', 'Prototyping'],
+          description: 'Bolaji is a seasoned design leader who turns complex challenges into structured, user-centered solutions. He ensures every design decision aligns with user needs and business goals.',
+          skills: ['Product Design', 'Ux Strategy', 'Design System', 'Stakeholders Communication', 'Prototyping'],
           expertise: 'Clean code and smooth, accessible interactions.'
         },
         {
@@ -24,7 +24,7 @@ function Team() {
           role: 'Team Lead',
           experience: '3+ years',
           image: olutadeImg,
-          description: 'Olutade builds scalable and reliable digital products with clean engineering practices. He skills as a digital between design and development, ensuring seamless execution.',
+          description: 'Olutade builds fast, scalable and reliable digital products with clean engineering practices. He skills as a digital between design and development, ensuring seamless execution.',
           skills: ['Frontend Development', 'React', 'Custom Architecture'],
           expertise: 'High quality builds delivered with technical precision.'
         },
@@ -74,24 +74,20 @@ function Team() {
           {/* TEXT SIDE */}
           <div className="col-md-6 d-flex flex-column justify-content-center">
             <div>
-              <p className="text-secondary mb-3">
-                Every great business starts with a vision. Ours started with two developers and one frustrating realization
+              <p className="text-black mb-3">
+                Here's a shorter, cleaner version with the same story and impact: Every great business starts with a vision - ours began with two developers and one frustrating truth. <br />
+                In 2019, Bolaji and olutade watched brillant African founders struggle, not because their ideas lacked potential, but because they couldn't find reliable designerscand developers.
+                Projects dragged, communication broke, and quality was hit-or-mss. So we built DevCheque with one promise: <br />
+                Exceptional digital products. Delivered on time, on budget. No agency BS. <br />
+                Six years and 50+ projects later, that promise still leads us. We've launched fintech MVps that secured founding, redesigned e-commerce stores that doubled conversions, and built apps users genuinely
+                love. But our biggest wins? The relationships and growth we've helped create. <br />
+                Today, DevCheque isn't just a studio - we're your full-stack product partner, from first wireframe to final deployment. <br />
+                Whether you're a new founder or a growing business, you deserves a team that treats tour products like their own. That's DevCheque.
               </p>
-
-              <p className="text-secondary mb-3">
-                In 2019, Bolaji and Olutade were watching talented African founders struggle, not because their ideas weren't brilliant,
-                but because they couldn't find developers and designers who actually delivered...
-              </p>
-
-              <p className="mb-3">
-                DevCheque was built on a simple promise: deliver exceptional digital products, on time and on budget...
-              </p>
-
-              <p className="mb-3">
-                We've helped fintech startups launch MVPs… but our proudest achievements are the relationships we've built.
-              </p>
-
-              <button className="btn btn-link text-success fw-semibold p-0">Read more ⓘ</button>
+                <button className="btn btn-success rounded-pill font-archivo" style={{width: '200px', backgroundColor: '#1da11d'}}>
+                  Start Your Project
+                </button>
+              <button className="btn btn-link text-success fw-semibold p-0">Read More ⓘ</button>
             </div>
           </div>
 
@@ -101,7 +97,7 @@ function Team() {
               className="rounded-3 w-100 p-3 d-flex align-items-center justify-content-center bg-light"
               style={{
                 border: "1px solid #eee",
-                height: "320px" // 👈 REDUCED HEIGHT
+                height: "320px" 
               }}
             >
               <img
@@ -119,7 +115,7 @@ function Team() {
         {/* Team Section */}
         <div className="mb-5">
           <h3 className="text-center fw-bold mb-3 h4">Meet Our Team</h3>
-          <p className="text-center text-secondary mb-4">
+          <p className="text-center text-black mb-4">
             Experienced professionals dedicated to delivering exceptional digital products
           </p>
 
@@ -156,7 +152,7 @@ function Team() {
                         </div>
                       </div>
                       <div className="border-top pt-2">
-                        <p className="text-muted small mb-1">What She Brings:</p>
+                        <p className="text-muted small mb-1">What He Brings:</p>
                         <p className="small fw-medium mb-0">{member.expertise}</p>
                       </div>
                     </div>
