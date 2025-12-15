@@ -47,7 +47,9 @@ function Footer() {
                 placeholder="name@domain.com"
                 className="form-control bg-secondary text-white border-0"
               />
-              <button className="btn btn-success">Send</button>
+              <button className="btn btn-success">
+                <a href="#contactForm" className='text-white text-decoration-none'>Send</a>
+              </button>
             </div>
 
             {/* Social Icons */}

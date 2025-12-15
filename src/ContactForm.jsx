@@ -1,5 +1,6 @@
 import 'bootstrap/dist/css/bootstrap.min.css';
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
+import { API_ENDPOINTS, buildHeaders, logApiCall } from './config/api';
 
 function ContactForm() {
   const [formData, setFormData] = useState({
@@ -15,51 +16,7 @@ function ContactForm() {
   const [loading, setLoading] = useState(false);
   const [success, setSuccess] = useState(false);
   const [error, setError] = useState('');
-  const [csrfToken, setCsrfToken] = useState("");
-
-  useEffect(() => {
-    async function fetchCsrfToken() {
-      try {
-        const res = await fetch(
-          "https://devchequebackend-production.up.railway.app/api/csrf/",
-          { 
-            credentials: "include",
-            mode: 'cors'
-          }
-        );
-        if (!res.ok) {
-          console.warn("CSRF endpoint returned error:", res.status);
-          // Don't set error, just log it
-          return;
-        }
-        const data = await res.json();
-        console.log("CSRF Response:", data);
-        setCsrfToken(data.csrfToken || "");
-      } catch (err) {
-        console.warn("CSRF fetch failed (form will work without it):", err);
-        // Don't set error - form can still work without CSRF in some cases
-      }
-    }
-    fetchCsrfToken();
-  }, []);
-
-  useEffect(() => {
-    async function fetchUserData() {
-      try {
-        const res = await fetch("https://devchequebackend-production.up.railway.app/api/form/");
-        if (!res.ok) return;
-        const data = await res.json();
-        setFormData(prev => ({
-          ...prev,
-          fullName: data.name || '',
-          email: data.email || ''
-        }));
-      } catch (err) {
-        console.warn("User data fetch failed:", err);
-      }
-    }
-    fetchUserData();
-  }, []);
+  
 
   const handleProjectTypeToggle = (type) => {
     setFormData(prev => {
@@ -72,15 +29,17 @@ function ContactForm() {
   };
 
   const handleSubmit = async () => {
-    console.log("Submit button clicked!");
+    console.log("🚀 === FORM SUBMISSION START ===");
     
     // Basic validation
     if (!formData.fullName || !formData.email) {
+      console.log("❌ Validation failed");
       setError("Please fill in all required fields");
       return;
     }
 
     try {
+      console.log("✅ Validation passed");
       setLoading(true);
       setError('');
       setSuccess(false);
@@ -95,31 +54,33 @@ function ContactForm() {
         honeypot: formData.honeypot
       };
 
-      console.log("Sending payload:", payload);
-      console.log("CSRF Token:", csrfToken ? "Present" : "Not present");
+      console.log("📦 Payload being sent:", payload);
 
-      const headers = {
-        "Content-Type": "application/json"
-      };
-
-      // Only add CSRF token if we have it
-      if (csrfToken) {
-        headers["X-CSRFToken"] = csrfToken;
-      }
-
-      const res = await fetch("https://devchequebackend-production.up.railway.app/api/", {
-        method: "POST",
-        headers: headers,
-        credentials: "include",
-        mode: 'cors',
-        body: JSON.stringify(payload)
+      
+      console.log("📡 Sending request to:", API_ENDPOINTS.form);
+      logApiCall(API_ENDPOINTS.form, { 
+        method: 'POST', 
+        headers: buildHeaders(), 
+        body: JSON.stringify(payload) 
       });
 
-      console.log("Response status:", res.status);
+      const res = await fetch(
+        API_ENDPOINTS.form,
+        {
+          method: "POST",
+          headers: buildHeaders(),
+          body: JSON.stringify(payload)
+        }
+      );
+
+      console.log("📥 Response received!");
+      console.log("   Status Code:", res.status);
+      console.log("   Status OK?:", res.ok);
 
       if (!res.ok) {
+        console.log("❌ Response not OK, handling error...");
         const errorText = await res.text();
-        console.error("Error response:", errorText);
+        console.error("   Error Response:", errorText);
         
         let errorData;
         try {
@@ -131,12 +92,24 @@ function ContactForm() {
         throw new Error(errorData.message || errorData.error || `Server error: ${res.status}`);
       }
 
-      const responseData = await res.json();
-      console.log("Success response:", responseData);
+      // Check response type
+      const contentType = res.headers.get("content-type");
+      console.log("📄 Response Content-Type:", contentType);
 
+      let responseData;
+      if (contentType && contentType.includes("application/json")) {
+        responseData = await res.json();
+        console.log("✅ JSON Response Data:", responseData);
+      } else {
+        responseData = await res.text();
+        console.log("⚠️ TEXT Response Data:", responseData);
+      }
+
+      console.log("🎉 SUCCESS! Setting success state...");
       setSuccess(true);
       setError('');
 
+      console.log("🧹 Clearing form...");
       // Reset form
       setFormData({
         fullName: '',
@@ -148,139 +121,157 @@ function ContactForm() {
         honeypot: ''
       });
 
+      console.log("✅ Form cleared successfully!");
+
       // Auto-hide success message after 5 seconds
-      setTimeout(() => setSuccess(false), 5000);
+      setTimeout(() => {
+        console.log("👋 Hiding success message now");
+        setSuccess(false);
+      }, 5000);
 
     } catch (err) {
-      console.error("Submit error:", err);
+      console.error("💥 === ERROR CAUGHT ===");
+      console.error("Error Object:", err);
+      console.error("Error Message:", err.message);
+      
       setError(err.message || "Error sending message. Please try again.");
       setSuccess(false);
     } finally {
+      console.log("🏁 Setting loading to false");
       setLoading(false);
+      console.log("=== FORM SUBMISSION END ===\n");
     }
   };
 
   return (
-    <section id='contactForm' className="py-5" style={{backgroundColor: '#90ee90'}}>
-      <div className="container" style={{ maxWidth: '42rem' }}>
-        <h2 className=" text-center text-black fw-bold mb-3 display-5">Let's Talk About Your Project</h2>
-      
-        <div className="card shadow-sm rounded-3 p-4">
-          {success && (
-            <div className="alert alert-success alert-dismissible fade show" role="alert">
-              ✓ Message sent successfully!
-              <button type="button" className="btn-close" onClick={() => setSuccess(false)}></button>
-            </div>
-          )}
-          {error && (
-            <div className="alert alert-danger alert-dismissible fade show" role="alert">
-              {error}
-              <button type="button" className="btn-close" onClick={() => setError('')}></button>
-            </div>
-          )}
+    <section id='contactForm' className="contact-section">
+        <div className="contact-container">
+          <h2 className="text-center fw-bold mb-5" style={{ fontSize: '2.5rem', color: '#000' }}>
+            Let's Talk About Your Project
+          </h2>
 
-          <div>
-            {/* Name & Email */}
-            <div className="row g-3 mb-3">
-              <div className="col-md-6">
-                <label className="form-label">
-                  Full Name <span className="text-danger">(Required)</span>
+          <div className="form-card">
+            {success && (
+              <div className="alert-custom alert-success section-light-green font-archivo">
+                ✓ Message sent successfully!
+                <button className="close-btn font-archivo" onClick={() => setSuccess(false)}>×</button>
+              </div>
+            )}
+            
+            {error && (
+              <div className="alert-custom alert-danger font-archivo">
+                {error}
+                <button className="close-btn font-archivo" onClick={() => setError('')}>×</button>
+              </div>
+            )}
+
+            {/* Name & Email Row */}
+            <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '20px', marginBottom: '20px' }}>
+              <div className="form-name-field">
+                <label className="form-label-custom font-archivo">
+                  Full Name <span className="required-tag font-archivo">(Required)</span>
                 </label>
                 <input
                   type="text"
-                  className="form-control"
+                  className="input-custom font-archivo"
                   placeholder="Type here"
                   value={formData.fullName}
                   onChange={(e) => setFormData({ ...formData, fullName: e.target.value })}
-                  required
                 />
               </div>
-              <div className="col-md-6">
-                <label className="form-label">
-                  Email <span className="text-danger">(Required)</span>
+
+              <div className="form-email-field">
+                <label className="form-label-custom font-archivo">
+                  Email <span className="required-tag font-archivo">(Required)</span>
                 </label>
                 <input
                   type="email"
-                  className="form-control"
+                  className="input-custom font-archivo"
                   placeholder="Type here"
                   value={formData.email}
                   onChange={(e) => setFormData({ ...formData, email: e.target.value })}
-                  required
                 />
               </div>
             </div>
 
             {/* Company */}
-            <div className="mb-3">
-              <label className="form-label">Company/Organization <span className='text-danger'> (optional)</span></label>
+            <div className="form-field">
+              <label className="form-label-custom font-archivo">
+                Company/Organization <span className="optional-tag font-archivo">(optional)</span>
+              </label>
               <input
                 type="text"
-                className="form-control"
+                className="input-custom font-archivo"
                 placeholder="Type here"
                 value={formData.company}
                 onChange={(e) => setFormData({ ...formData, company: e.target.value })}
               />
             </div>
 
-            {/* Project Types */}
-            <div className="mb-3">
-              <label className="form-label">Project Type</label>
-              <div className="d-flex flex-wrap gap-3">
+            {/* Project Type */}
+            <div className="form-field">
+              <label className="form-label-custom font-archivo">
+                Project Type ▼
+              </label>
+              <div className="checkbox-grid font-archivo">
                 {["Web Design", "Branding", "Mobile App Design", "Others"].map((type) => (
-                  <div className="form-check" key={type}>
+                  <div className="checkbox-item" key={type}>
                     <input
-                      className="form-check-input"
                       type="checkbox"
+                      className="checkbox-custom font-archivo"
                       checked={formData.projectTypes.includes(type)}
                       onChange={() => handleProjectTypeToggle(type)}
                       id={type}
                     />
-                    <label className="form-check-label" htmlFor={type}>{type}</label>
+                    <label className="checkbox-label" htmlFor={type}>{type}</label>
                   </div>
                 ))}
               </div>
             </div>
 
             {/* Budget */}
-            <div className="mb-3">
-              <label className="form-label">Project Budget</label>
-              <p className="small text-muted mb-2">Slide to indicate your budget</p>
+            <div className="form-field">
+              <label className="form-label-custom font-archivo">
+                Project Budget
+              </label>
+              <p className='font-archivo' style={{ fontSize: '14px', color: '#666', marginBottom: '8px' }}>
+                Slide to indicate your budget range
+              </p>
               <input
                 type="range"
-                className="form-range"
+                className="budget-slider"
                 min="5000"
                 max="25000"
                 step="1000"
                 value={formData.budget}
                 onChange={(e) => setFormData({ ...formData, budget: parseInt(e.target.value) })}
+                style={{
+                  background: `linear-gradient(to right, #7cb342 0%, #7cb342 ${((formData.budget - 5000) / (25000 - 5000)) * 100}%, #424242 ${((formData.budget - 5000) / (25000 - 5000)) * 100}%, #424242 100%)`
+                }}
               />
-              <div className="d-flex justify-content-between small text-muted">
-                <span>${formData.budget.toLocaleString()}</span>
-                <span>$25,000</span>
+              <div className="budget-labels">
+                <span className='font-archivo'>${formData.budget.toLocaleString()}</span>
+                <span className='font-archivo'>$25000</span>
               </div>
             </div>
 
             {/* Message */}
-            <div className="mb-3">
-              <label className="form-label">Message</label>
+            <div className="form-message-field">
+              <label className="form-label-custom font-archivo">
+                Message <span className="required-tag font-archivo">(Required)</span>
+              </label>
               <textarea
-                className="form-control"
+                className="textarea-custom font-archivo"
                 rows="4"
                 placeholder="Type here"
                 value={formData.message}
                 onChange={(e) => setFormData({ ...formData, message: e.target.value })}
-                style={{
-                  backgroundImage: 'linear-gradient(transparent, transparent 39px, #ccc 39px, #ccc 40px)',
-                  backgroundSize: '100% 40px',
-                  lineHeight: '40px'
-                }}
               ></textarea>
             </div>
 
-            {/* Honeypot field */}
+            {/* Honeypot */}
             <input
               type="text"
-              name="honeypot"
               value={formData.honeypot}
               onChange={(e) => setFormData({ ...formData, honeypot: e.target.value })}
               style={{ display: 'none' }}
@@ -290,25 +281,26 @@ function ContactForm() {
 
             {/* Submit Button */}
             <button
-              type="button"
-              className="btn btn-success w-50"
+              className="submit-button font-archivo"
               onClick={handleSubmit}
               disabled={loading}
             >
               {loading ? (
                 <>
-                  <span className="spinner-border spinner-border-sm me-2" role="status" aria-hidden="true"></span>
+                  <span className='font-archivo' style={{ marginRight: '8px' }}>⟳</span>
                   Sending...
                 </>
               ) : (
                 "Submit"
               )}
             </button>
+
+            <p className="privacy-text font-archivo">
+              We respect your privacy and we respond between 24 hrs
+            </p>
           </div>
         </div>
-        <p className='text-center text-black'>We respect your privacy and we respond between 24 hrs</p>
-      </div>
-    </section>
+      </section>
   );
 }
 
