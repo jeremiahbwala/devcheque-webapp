@@ -1,4 +1,5 @@
 import 'bootstrap/dist/css/bootstrap.min.css';
+import './Contact Form/contact.css';
 import React, { useState } from 'react';
 import { API_ENDPOINTS, buildHeaders, logApiCall } from './config/api';
 

@@ -1,4 +1,5 @@
 import 'bootstrap/dist/css/bootstrap.min.css';
+import './FAQ/FAQ.css'
 import React, { useState } from 'react';
 
 function FAQ() {

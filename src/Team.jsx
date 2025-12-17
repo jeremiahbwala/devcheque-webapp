@@ -1,4 +1,5 @@
 import 'bootstrap/dist/css/bootstrap.min.css';
+import './Team/team.css';
 import React, { useState } from 'react';
 import './index.css';
 import BolajiImage from './assets/team/Bolaji.jpeg'
