@@ -59,8 +59,20 @@ function Testimonials() {
                     style={{
                       width: "3%",
                       height: "auto",
-                      display: "block",
+                      display: "inline-flex",
                       margin: "0 auto",
+                      alignItems: "center",
+                    }}
+                  />
+                  <img
+                    src={vector}
+                    alt="vector"
+                    style={{
+                      width: "3%",
+                      height: "auto",
+                      display: "inline-flex",
+                      margin: "0 auto",
+                      alignItems: "center",
                     }}
                   />
                 </div>
@@ -97,14 +109,26 @@ function Testimonials() {
             <div className="col-md-6">
               <div className="cards shadow-sm p-4 h-100">
                 <div className="text-success text-center display-4 mb-3">
+                <img
+                    src={vector}
+                    alt="vector"
+                    style={{
+                      width: "3%",
+                      height: "auto",
+                      display: "inline-flex",
+                      margin: "0 auto",
+                      alignItems: "center",
+                    }}
+                  />
                   <img
                     src={vector}
                     alt="vector"
                     style={{
                       width: "3%",
                       height: "auto",
-                      display: "block",
+                      display: "inline-flex",
                       margin: "0 auto",
+                      alignItems: "center",
                     }}
                   />
                 </div>
@@ -124,7 +148,7 @@ function Testimonials() {
                       style={{ width: "100%", height: "100%", objectFit: "cover" }}
                     />
                   </div>
-
+                    
                   <div>
                     <p className="fw-bold mb-1 font-archivo">Zanele Khumalo</p>
                     <div className="d-flex text-warning">
