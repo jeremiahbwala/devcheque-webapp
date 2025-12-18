@@ -76,7 +76,7 @@ function DevChequeWebsite() {
         <div className="container position-relative">
           <div className="text-center text-white" style={{ maxWidth: '900px', margin: '0 auto' }}>
             {/* Tagline */}
-            <p className='font-archivo' style={{ letterSpacing: '2px', width: '700', style: 'bold', fontSize: '40px', fontFamily: 'Archivo' }}>
+            <p className='hero-text font-archivo'>
               Design.Develop.Deploy
             </p>
 
