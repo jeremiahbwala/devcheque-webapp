@@ -77,7 +77,7 @@ function Testimonials() {
                   />
                 </div>
                 <p className="text-black mb-4 font-archivo">
-                  Before DevCheque, our program was chaotic and hard to scale. The app they built modernized everything—personalized workouts, smooth tracking, higher engagement, and triple retention. They didn't just build an app; they strengthened our entire business.
+                  Before DevCheque, our program was chaotic and hard to scale. The app they built modernized everything personalized workouts, smooth tracking, higher engagement, and triple retention. They didn't just build an app; they strengthened our entire business.
                 </p>
 
                 <div className="d-flex align-items-center justify-content-center">
@@ -95,7 +95,7 @@ function Testimonials() {
 
                   <div>
                     <p className="fw-bold mb-1 font-archivo">Olumide Adebayo</p>
-                    <div className="d-flex text-warning">
+                    <div className="d-flex text-success">
                       {[...Array(5)].map((_, i) => (
                         <Star key={i} size={16} fill="currentColor" />
                       ))}
@@ -151,7 +151,7 @@ function Testimonials() {
                     
                   <div>
                     <p className="fw-bold mb-1 font-archivo">Zanele Khumalo</p>
-                    <div className="d-flex text-warning">
+                    <div className="d-flex text-success">
                       {[...Array(4)].map((_, i) => (
                         <Star key={i} size={16} fill="currentColor" />
                       ))}

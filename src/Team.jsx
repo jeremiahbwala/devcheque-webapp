@@ -4,9 +4,11 @@ import React, { useState } from 'react';
 import './index.css';
 import BolajiImage from './assets/team/Bolaji.jpeg'
 import OlutadeImage from './assets/team/Olutade.jpeg'
-import FortuneImage from './assets/team/Fortune.jpeg'
+import FortuneImage from './assets/Fortune.jpeg'
 import ChideraImg from './assets/team/Chidera.jpeg'
+import SodiqImg from './assets/team/Sodiq.jpeg'
 import AboutImage from './assets/About.jpeg'
+import SeunImg from './assets/Seun.jpeg'
 
 
 
@@ -46,9 +48,27 @@ function Team() {
       role: 'Team Lead',
       experience: '5+ years',
       image: ChideraImg,
-      description: 'Chidera delivers pixel-perfect interfaces with meticulous attention to detail. His work ensures seamless experiences across all devices.',
+      description: 'Chidera delivers pixel perfect interfaces with meticulous attention to detail. Her work ensures seamless experiences across all devices.',
       skills: ['Webflow', 'React', 'Css Architecture', 'Responsive Design'],
       expertise: 'Precision implementation and cross-platform consistency.'
+    },
+    {
+      name: 'Seun',
+      role: 'Front-End Developer',
+      experience: '3+ years',
+      image: SeunImg,
+      description: 'Seun delivers clean code and smooth user interactions. His strength is building consistent, scalable components that ensure long-term maintainability..',
+      skills: ['HTML', 'CSS', 'JavaScript', 'React', 'Component Development', 'Accessibility', 'CMS Implementation'],
+      expertise: 'Seun delivers clean code and smooth user interactions.'
+    },
+    {
+      name: 'Sodiq',
+      role: 'Backend Develoiper',
+      experience: '5+ years',
+      image: SodiqImg,
+      description: 'Sodiq brings stability speed, and problem solving to backend system. He ensures the foundation of every product is secure, efficient, and built to scale.',
+      skills: ['Node.js', 'APIs', 'Database Design', 'System Intergration', 'Security', 'Server side logic'],
+      expertise: 'Sodiq brings stability speed, and problem solving to backend system.'
     }
   ];
 
@@ -73,13 +93,13 @@ function Team() {
                 DevCheque began in 2019 when two developers, Bolaji and Olutade, set out to solve a real problem: founders struggled to find reliable designers and developers who delivered quality work on time.
               </p>
               <p className="about-text">
-                We built DevCheque on one promise—deliver exceptional digital products without the agency BS. No overpromising. No delays. No surprise fees.
+                We built DevCheque on one promise deliver exceptional digital products without the agency BS. No overpromising. No delays. No surprise fees.
               </p>
               <p className="about-text">
                 Six years and 50+ projects later, that promise still drives us. We've helped fintech startups launch funded MVPs, revamped e-commerce platforms that doubled conversions, and built apps users love.
               </p>
               <p className="about-text">
-                Today, DevCheque is a full-stack product partner—from first wireframe to deployment. Whether you're a new founder or a growing business, we treat your project like it's our own.
+                Today, DevCheque is a full-stack product partner from first wireframe to deployment. Whether you're a new founder or a growing business, we treat your project like it's our own.
               </p>
               <p className="about-text">Let's build something great.</p>
               
@@ -138,7 +158,7 @@ function Team() {
 
                   <div className="expertise-section">
                     <p className="expertise-label">
-                      What {member.name === 'Fortune' ? 'She' : 'He'} Brings:
+                      What {member.name === 'Fortune' || member.name === 'Chidera' ? 'She' : 'He'} Brings:
                     </p>
                     <p className="expertise-text">{member.expertise}</p>
                   </div>

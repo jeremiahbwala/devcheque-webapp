@@ -83,7 +83,7 @@ function CaseStudy() {
                 <h3>Rebrand and Website Redesign</h3>
                 <p>
                   We rebranded CamSecure and rebuilt their website with a modern identity,
-                  clearer messaging, and improved UX—resulting in 40% more qualified leads,
+                  clearer messaging, and improved UX resulting in 40% more qualified leads,
                   a 31% drop in bounce rate, and consistent branding across all channels.
                 </p>
               </div>
@@ -96,7 +96,7 @@ function CaseStudy() {
                 <h3>Tradeport Website Redesign</h3>
                 <p>
                   We redesigned TradePort’s website with cleaner navigation, stronger messaging,
-                  and a modern Webflow build—boosting qualified leads by 48%, improving load time
+                  and a modern Webflow build boosting qualified leads by 48%, improving load time
                   to 1.8s, increasing engagement, and cutting bounce rate by 28%.
                 </p>
               </div>

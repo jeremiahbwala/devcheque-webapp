@@ -55,7 +55,7 @@ function Services() {
         </div>
         <h3 class="font-archivo">Mobile Apps</h3>
         <p class="font-archivo">
-          We build fast, user-friendly native and cross-platform apps that deliver seamless experiences across iOS and Android.
+          We build fast, user friendly native and cross-platform apps that deliver seamless experiences across iOS and Android.
         </p>
       </div>
 

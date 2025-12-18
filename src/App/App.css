@@ -94,10 +94,18 @@ img {
 }
 
 .hero-image-wrapper {
-  margin-top: 24px;          /* brings image closer to CTA */
+  margin-top: 40px;          /* brings image closer to CTA */
   display: flex;
   justify-content: center;
 }
+
+.hero-image {
+  width: clamp(280px, 45vw, 800px);
+  height: auto;
+}
+
+
+
 
 .hero-text {
   letter-spacing: 2px;
