@@ -6,7 +6,7 @@ import { Code, Smartphone } from "lucide-react";
 
 function Services() {
     return (
-      <section id="services" class="font-archivo testimonial-section">
+      <section id="services" class="font-archivo service-section">
   <div class="container">
     <h2 class="text-center fw-bold font-archivo">Our Services</h2>
     <p class="text-center text-black font-archivo">
