@@ -1,4 +1,5 @@
 import 'bootstrap/dist/css/bootstrap.min.css';
+import './Footer/footer.css';
 import React from 'react';
 
 function Footer() {
@@ -70,18 +71,7 @@ function Footer() {
           </div>
 
         </div>
-
-        <div className="border-top border-secondary pt-3 text-center text-secondary small">
-          © 2024 DevCheque. All rights reserved.
-        </div>
       </div>
-
-      {/* Hover effect styling */}
-      <style>{`
-        .hover-link:hover {
-          color: #28a745 !important;
-        }
-      `}</style>
     </footer>
   );
 }

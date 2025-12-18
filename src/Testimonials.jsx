@@ -1,8 +1,10 @@
 import 'bootstrap/dist/css/bootstrap.min.css';
+import './Testimonial/testimonial.css';
 import './index.css';
 import { Star } from "lucide-react";
 import olumideImg from './assets/Olumide.jpg';
 import zaneleImg from './assets/Zanele.jpg';
+import vector from './assets/Vector.png';
 
 
 function Testimonials() {
@@ -51,9 +53,16 @@ function Testimonials() {
             <div className="col-md-6">
               <div className="cards shadow-sm p-4 h-100">
                 <div className="text-success text-center display-4 mb-3">
-                  <svg xmlns="http://www.w3.org/2000/svg" width="60" height="60" fill="currentColor" className="bi bi-quote" viewBox="0 0 16 16">
-                    <path d="M12 12a1 1 0 0 0 1-1V8.558a1 1 0 0 0-1-1h-1.388q0-.527.062-1.054.093-.558.31-.992t.559-.683q.34-.279.868-.279V3q-.868 0-1.52.372a3.3 3.3 0 0 0-1.085.992 4.9 4.9 0 0 0-.62 1.458A7.7 7.7 0 0 0 9 7.558V11a1 1 0 0 0 1 1zm-6 0a1 1 0 0 0 1-1V8.558a1 1 0 0 0-1-1H4.612q0-.527.062-1.054.094-.558.31-.992.217-.434.559-.683.34-.279.868-.279V3q-.868 0-1.52.372a3.3 3.3 0 0 0-1.085.992 4.9 4.9 0 0 0-.62 1.458A7.7 7.7 0 0 0 3 7.558V11a1 1 0 0 0 1 1z"/>
-                  </svg>
+                  <img
+                    src={vector}
+                    alt="vector"
+                    style={{
+                      width: "3%",
+                      height: "auto",
+                      display: "block",
+                      margin: "0 auto",
+                    }}
+                  />
                 </div>
                 <p className="text-black mb-4 font-archivo">
                   Before DevCheque, our program was chaotic and hard to scale. The app they built modernized everything—personalized workouts, smooth tracking, higher engagement, and triple retention. They didn't just build an app; they strengthened our entire business.
@@ -63,7 +72,7 @@ function Testimonials() {
                 {/* Image wrapper */}
                   <div
                     className="rounded-circle overflow-hidden me-3"
-                    style={{ width: "3rem", height: "3rem" }}
+                    style={{ width: "4rem", height: "4rem" }}
                   >
                     <img
                       src={olumideImg}
@@ -88,9 +97,16 @@ function Testimonials() {
             <div className="col-md-6">
               <div className="cards shadow-sm p-4 h-100">
                 <div className="text-success text-center display-4 mb-3">
-                  <svg xmlns="http://www.w3.org/2000/svg" width="60" height="60" fill="currentColor" className="bi bi-quote" viewBox="0 0 16 16">
-                    <path d="M12 12a1 1 0 0 0 1-1V8.558a1 1 0 0 0-1-1h-1.388q0-.527.062-1.054.093-.558.31-.992t.559-.683q.34-.279.868-.279V3q-.868 0-1.52.372a3.3 3.3 0 0 0-1.085.992 4.9 4.9 0 0 0-.62 1.458A7.7 7.7 0 0 0 9 7.558V11a1 1 0 0 0 1 1zm-6 0a1 1 0 0 0 1-1V8.558a1 1 0 0 0-1-1H4.612q0-.527.062-1.054.094-.558.31-.992.217-.434.559-.683.34-.279.868-.279V3q-.868 0-1.52.372a3.3 3.3 0 0 0-1.085.992 4.9 4.9 0 0 0-.62 1.458A7.7 7.7 0 0 0 3 7.558V11a1 1 0 0 0 1 1z"/>
-                  </svg>
+                  <img
+                    src={vector}
+                    alt="vector"
+                    style={{
+                      width: "3%",
+                      height: "auto",
+                      display: "block",
+                      margin: "0 auto",
+                    }}
+                  />
                 </div>
                 <p className="text-black mb-4 font-archivo">
                   Our old brand made us look smaller than we were. DevCheque fixed that with a modern identity and a website built for enterprise clients. Clear messaging and confident visuals improved our credibility, and within weeks it qualified leads grew. They truly elevated our business for good.
@@ -100,7 +116,7 @@ function Testimonials() {
                 {/* Image wrapper */}
                   <div
                     className="rounded-circle overflow-hidden me-3"
-                    style={{ width: "3rem", height: "3rem" }}
+                    style={{ width: "4rem", height: "4rem" }}
                   >
                     <img
                       src={zaneleImg}

@@ -1,4 +1,5 @@
 import 'bootstrap/dist/css/bootstrap.min.css';
+import './Contact Form/contact.css';
 import React, { useState } from 'react';
 import { API_ENDPOINTS, buildHeaders, logApiCall } from './config/api';
 
@@ -211,7 +212,7 @@ function ContactForm() {
             {/* Project Type */}
             <div className="form-field">
               <label className="form-label-custom font-archivo">
-                Project Type ▼
+                Project Type 
               </label>
               <div className="checkbox-grid font-archivo">
                 {["Web Design", "Branding", "Mobile App Design", "Others"].map((type) => (

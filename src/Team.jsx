@@ -1,4 +1,5 @@
 import 'bootstrap/dist/css/bootstrap.min.css';
+import './Team/team.css';
 import React, { useState } from 'react';
 import './index.css';
 import BolajiImage from './assets/team/Bolaji.jpeg'
@@ -99,76 +100,53 @@ function Team() {
       </section>
 
       {/* Team Section */}
-      <section className="team-section">
-        <div className="team-container">
-          <h3 className="team-title">Meet Our Team</h3>
-          <p className="team-subtitle">
-            Experienced professionals dedicated to delivering exceptional digital products
-          </p>
+<section className="team-section">
+  <div className="team-container">
+    <h3 className="team-title">Meet The Team</h3>
+    <p className="team-subtitle">
+      Experienced professionals dedicated to delivering exceptional digital products
+    </p>
 
-          <div className="carousel-wrapper">
-            <div 
-              className="carousel-track"
-              style={{ 
-                transform: `translateX(-${currentIndex * (25)}%)`,
-              }}
-            >
-              {[...teamMembers, ...teamMembers].map((member, index) => (
-                <div key={index} className="team-card">
-                  <img 
-                    src={member.image} 
-                    alt={member.name} 
-                    className="card-image"
-                  />
-                  <div className="card-contents">
-                    <div className="card-header">
-                      <h4 className="card-name">{member.name}</h4>
-                      <span className="card-experience">{member.experience}</span>
-                    </div>
-                    <p className="card-role">{member.role}</p>
-                    <p className="card-description">{member.description}</p>
-                    
-                    <div className="skills-section">
-                      <p className="skills-title">Key Skills</p>
-                      <div className="skills-list">
-                        {member.skills.map((skill, idx) => (
-                          <span key={idx} className="skill-badge">{skill}</span>
-                        ))}
-                      </div>
-                    </div>
+    <div className="team-grid">
+      {teamMembers.map((member, index) => (
+        <div key={index} className="team-card">
+          <img
+            src={member.image}
+            alt={member.name}
+            className="card-image"
+          />
 
-                    <div className="expertise-section">
-                      <p className="expertise-label">What {member.name.includes('Fortune') ? 'She' : 'He'} Brings:</p>
-                      <p className="expertise-text">{member.expertise}</p>
-                    </div>
-                  </div>
-                </div>
-              ))}
+          <div className="card-contents">
+            <div className="card-header">
+              <h4 className="card-name">{member.name}</h4>
+              <span className="card-experience">{member.experience}</span>
             </div>
 
-            <button onClick={handlePrev} className="carousel-button prev">
-              <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
-                <path d="M15 18L9 12L15 6" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
-              </svg>
-            </button>
-            <button onClick={handleNext} className="carousel-button next">
-              <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
-                <path d="M9 18L15 12L9 6" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
-              </svg>
-            </button>
-          </div>
+            <p className="card-role">{member.role}</p>
+            <p className="card-description">{member.description}</p>
 
-          <div className="carousel-indicators">
-            {teamMembers.map((_, index) => (
-              <button
-                key={index}
-                onClick={() => setCurrentIndex(index)}
-                className={`indicator ${index === currentIndex ? 'active' : ''}`}
-              />
-            ))}
+            <div className="skills-section">
+              <p className="skills-title">Key Skills</p>
+              <div className="skills-list">
+                {member.skills.map((skill, idx) => (
+                  <span key={idx} className="skill-badge">{skill}</span>
+                ))}
+              </div>
+            </div>
+
+            <div className="expertise-section">
+              <p className="expertise-label">
+                What {member.name === 'Fortune' ? 'She' : 'He'} Brings:
+              </p>
+              <p className="expertise-text">{member.expertise}</p>
+            </div>
           </div>
         </div>
-      </section>
+      ))}
+    </div>
+  </div>
+</section>
+
     </>
   );
 }

@@ -1,11 +1,12 @@
 import 'bootstrap/dist/css/bootstrap.min.css';
+import './Service/service.css';
 import "https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"
 import './index.css';
 import { Code, Smartphone } from "lucide-react";
 
 function Services() {
     return (
-      <section id="services" class="font-archivo testimonial-section">
+      <section id="services" class="font-archivo service-section">
   <div class="container">
     <h2 class="text-center fw-bold font-archivo">Our Services</h2>
     <p class="text-center text-black font-archivo">
