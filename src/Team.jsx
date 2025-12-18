@@ -1,16 +1,14 @@
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './Team/team.css';
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import './index.css';
-import BolajiImage from './assets/team/Bolaji.jpeg'
-import OlutadeImage from './assets/team/Olutade.jpeg'
-import FortuneImage from './assets/Fortune.jpeg'
-import ChideraImg from './assets/team/Chidera.jpeg'
-import SodiqImg from './assets/team/Sodiq.jpeg'
-import AboutImage from './assets/About.jpeg'
-import SeunImg from './assets/Seun.jpeg'
-
-
+import BolajiImage from './assets/team/Bolaji.jpeg';
+import OlutadeImage from './assets/team/Olutade.jpeg';
+import FortuneImage from './assets/Fortune.jpeg';
+import ChideraImg from './assets/team/Chidera.jpeg';
+import SodiqImg from './assets/team/Sodiq.jpeg';
+import AboutImage from './assets/About.jpeg';
+import SeunImg from './assets/Seun.jpeg';
 
 function Team() {
   const [currentIndex, setCurrentIndex] = useState(0);
@@ -72,13 +70,16 @@ function Team() {
     }
   ];
 
-  const handlePrev = () => {
-    setCurrentIndex((prev) => (prev === 0 ? teamMembers.length - 1 : prev - 1));
-  };
+  // AUTO SLIDE
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setCurrentIndex((prev) =>
+        prev === teamMembers.length - 1 ? 0 : prev + 1
+      );
+    }, 3000); // slide every 3 seconds
 
-  const handleNext = () => {
-    setCurrentIndex((prev) => (prev === teamMembers.length - 1 ? 0 : prev + 1));
-  };
+    return () => clearInterval(interval);
+  }, [teamMembers.length]);
 
   return (
     <>
@@ -129,7 +130,9 @@ function Team() {
             Experienced professionals dedicated to delivering exceptional digital products
           </p>
 
-          <div className="team-grid">
+          {/* === AUTO SLIDING GRID === */}
+          <div className="team-grid slider-track"
+               style={{ transform: `translateX(-${currentIndex * 350}px)` }}>
             {teamMembers.map((member, index) => (
               <div key={index} className="team-card">
                 <img
