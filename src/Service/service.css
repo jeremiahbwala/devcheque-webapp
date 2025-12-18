@@ -57,7 +57,17 @@
   .service-icon {
     width: 4rem;
     height: 4rem;
-    background-color: #4a7c59;
+    border-radius: 0.75rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 2.5rem;
+  }
+
+  .services-icon {
+    width: 4rem;
+    height: 4rem;
+    background: linear-gradient(#4a7c59, #27272e);
     border-radius: 0.75rem;
     display: flex;
     align-items: center;

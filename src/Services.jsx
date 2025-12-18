@@ -2,6 +2,9 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import './Service/service.css';
 import "https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"
 import './index.css';
+import WebImg from './assets/Web.png';
+import MobileImg from './assets/Mobile.png';
+import UIImg from './assets/UI.png'; 
 import { Code, Smartphone } from "lucide-react";
 
 function Services() {
@@ -19,9 +22,16 @@ function Services() {
       {/*-- UI/UX Design */}
       <div class="service-item">
         <div class="service-icon">
-          <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 16 16">
-            <path d="M15.825.12a.5.5 0 0 1 .132.584c-1.53 3.43-4.743 8.17-7.095 10.64a6.1 6.1 0 0 1-2.373 1.534c-.018.227-.06.538-.16.868-.201.659-.667 1.479-1.708 1.74a8.1 8.1 0 0 1-3.078.132 4 4 0 0 1-.562-.135 1.4 1.4 0 0 1-.466-.247.7.7 0 0 1-.204-.288.62.62 0 0 1 .004-.443c.095-.245.316-.38.461-.452.394-.197.625-.453.867-.826.095-.144.184-.297.287-.472l.117-.198c.151-.255.326-.54.546-.848.528-.739 1.201-.925 1.746-.896q.19.012.348.048c.062-.172.142-.38.238-.608.261-.619.658-1.419 1.187-2.069 2.176-2.67 6.18-6.206 9.117-8.104a.5.5 0 0 1 .596.04"/>
-          </svg>
+          <img
+            src={UIImg}
+            alt="vector"
+            style={{
+              width: "4rem",
+              height: "4rem",
+              display: "block",
+              margin: "0 auto",
+            }}
+          />
         </div>
         <h3 class="font-archivo">UI/UX Design</h3>
         <p class="font-archivo">
@@ -32,10 +42,16 @@ function Services() {
       {/*- Mobile Apps */}
       <div class="service-item">
         <div class="service-icon">
-          <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 24 24" stroke="currentColor">
-            <rect x="5" y="2" width="14" height="20" rx="2" ry="2" fill="none" stroke="currentColor" stroke-width="2"/>
-            <line x1="12" y1="18" x2="12" y2="18" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
-          </svg>
+          <img
+            src={MobileImg}
+            alt="vector"
+            style={{
+              width: "4rem",
+              height: "4rem",
+              display: "block",
+              margin: "0 auto",
+            }}
+          />
         </div>
         <h3 class="font-archivo">Mobile Apps</h3>
         <p class="font-archivo">
@@ -46,10 +62,16 @@ function Services() {
       {/*- Branding */}
       <div class="service-item">
         <div class="service-icon">
-          <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 24 24" stroke="currentColor">
-            <rect x="5" y="2" width="14" height="20" rx="2" ry="2" fill="none" stroke="currentColor" stroke-width="2"/>
-            <line x1="12" y1="18" x2="12" y2="18" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
-          </svg>
+          <img
+            src={MobileImg}
+            alt="vector"
+            style={{
+              width: "4rem",
+              height: "4rem",
+              display: "block",
+              margin: "0 auto",
+            }}
+          />
         </div>
         <h3 class="font-archivo">Branding</h3>
         <p class="font-archivo">
@@ -59,11 +81,17 @@ function Services() {
 
       {/*-- Web Development */}
       <div class="service-item">
-        <div class="service-icon">
-          <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 24 24" stroke="currentColor">
-            <polyline points="16 18 22 12 16 6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-            <polyline points="8 6 2 12 8 18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-          </svg>
+        <div class="services-icon">
+          <img
+            src={WebImg}
+            alt="vector"
+            style={{
+              width: "3rem",
+              height: "3rem",
+              display: "block",
+              margin: "0 auto",
+            }}
+          />
         </div>
         <h3 class="font-archivo">Web Development</h3>
         <p class="font-archivo">

@@ -55,6 +55,7 @@
     background-color: #2e7d32;
     color: white;
     border: none;
+    text-decoration: none;
     padding: 14px 32px;
     font-size: 16px;
     font-weight: 600;
@@ -79,6 +80,48 @@
     height: 100%;
     object-fit: cover;
   }
+
+  /* ===== ABOUT SECTION RESPONSIVE ===== */
+@media (max-width: 992px) {
+  .about-content {
+    grid-template-columns: 1fr; /* stack content vertically */
+    gap: 40px;
+  }
+
+  .about-image-wrapper {
+    height: 400px;
+  }
+
+  .about-title {
+    font-size: 2.5rem;
+  }
+
+  .about-text {
+    font-size: 15px;
+  }
+}
+
+@media (max-width: 600px) {
+  .about-title {
+    font-size: 2rem;
+    text-align: center;
+  }
+
+  .about-text {
+    font-size: 14px;
+    line-height: 1.6;
+  }
+
+  .about-image-wrapper {
+    height: 250px;
+  }
+
+  .start-project-btn {
+    padding: 12px 24px;
+    font-size: 14px;
+  }
+}
+
   
  /* ================= TEAM SECTION ================= */
 .team-section {

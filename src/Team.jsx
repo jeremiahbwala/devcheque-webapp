@@ -84,7 +84,9 @@ function Team() {
               <p className="about-text">Let's build something great.</p>
               
               <div>
-                <button className="start-project-btn">Start Project</button>
+                <button className="start-project-btn">
+                  <a href="#contactForm" className='start-project-btn'>Start Project</a>
+                </button>
               </div>
             </div>
 
@@ -100,53 +102,52 @@ function Team() {
       </section>
 
       {/* Team Section */}
-<section className="team-section">
-  <div className="team-container">
-    <h3 className="team-title">Meet The Team</h3>
-    <p className="team-subtitle">
-      Experienced professionals dedicated to delivering exceptional digital products
-    </p>
+      <section className="team-section">
+        <div className="team-container">
+          <h3 className="team-title">Meet The Team</h3>
+          <p className="team-subtitle">
+            Experienced professionals dedicated to delivering exceptional digital products
+          </p>
 
-    <div className="team-grid">
-      {teamMembers.map((member, index) => (
-        <div key={index} className="team-card">
-          <img
-            src={member.image}
-            alt={member.name}
-            className="card-image"
-          />
+          <div className="team-grid">
+            {teamMembers.map((member, index) => (
+              <div key={index} className="team-card">
+                <img
+                  src={member.image}
+                  alt={member.name}
+                  className="card-image"
+                />
 
-          <div className="card-contents">
-            <div className="card-header">
-              <h4 className="card-name">{member.name}</h4>
-              <span className="card-experience">{member.experience}</span>
-            </div>
+                <div className="card-contents">
+                  <div className="card-header">
+                    <h4 className="card-name">{member.name}</h4>
+                    <span className="card-experience">{member.experience}</span>
+                  </div>
 
-            <p className="card-role">{member.role}</p>
-            <p className="card-description">{member.description}</p>
+                  <p className="card-role">{member.role}</p>
+                  <p className="card-description">{member.description}</p>
 
-            <div className="skills-section">
-              <p className="skills-title">Key Skills</p>
-              <div className="skills-list">
-                {member.skills.map((skill, idx) => (
-                  <span key={idx} className="skill-badge">{skill}</span>
-                ))}
+                  <div className="skills-section">
+                    <p className="skills-title">Key Skills</p>
+                    <div className="skills-list">
+                      {member.skills.map((skill, idx) => (
+                        <span key={idx} className="skill-badge">{skill}</span>
+                      ))}
+                    </div>
+                  </div>
+
+                  <div className="expertise-section">
+                    <p className="expertise-label">
+                      What {member.name === 'Fortune' ? 'She' : 'He'} Brings:
+                    </p>
+                    <p className="expertise-text">{member.expertise}</p>
+                  </div>
+                </div>
               </div>
-            </div>
-
-            <div className="expertise-section">
-              <p className="expertise-label">
-                What {member.name === 'Fortune' ? 'She' : 'He'} Brings:
-              </p>
-              <p className="expertise-text">{member.expertise}</p>
-            </div>
+            ))}
           </div>
         </div>
-      ))}
-    </div>
-  </div>
-</section>
-
+      </section>
     </>
   );
 }
