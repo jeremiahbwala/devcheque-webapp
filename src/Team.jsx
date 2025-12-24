@@ -19,67 +19,86 @@ function Team() {
       role: 'Team Lead',
       experience: '4+ years',
       image: BolajiImage,
-      description: 'Bolaji is a seasoned design leader who turns complex challenges into structured, user-centered solutions. He ensures every design decision aligns with user needs and business goals.',
-      skills: ['Product Design', 'Ux Strategy', 'Designs System', 'Stakeholder Communications', 'Prototyping'],
-      expertise: 'Clean code and smooth, accessible interactions.'
+      description:
+        'Bolaji is a seasoned design leader who turns complex challenges into structured, user-centered solutions.',
+      skills: ['Product Design', 'UX Strategy', 'Design System', 'Prototyping'],
+      expertise: 'Clean systems and strong design leadership.'
     },
     {
       name: 'Olutade',
       role: 'Team Lead',
       experience: '6+ years',
       image: OlutadeImage,
-      description: 'Olutade builds fast, scalable, and reliable digital products with clean engineering practices. He acts as a bridge between design and development, ensuring smooth execution.',
-      skills: ['Frontend Development', 'React', 'Technical Leadership', 'System Architecture'],
-      expertise: 'High-quality builds delivered with technical precision.'
+      description:
+        'Olutade builds fast, scalable, and reliable digital products with clean engineering practices.',
+      skills: ['Frontend', 'React', 'Architecture', 'Leadership'],
+      expertise: 'High-quality builds with technical precision.'
     },
     {
       name: 'Fortune',
       role: 'Product Designer',
       experience: '4+ years',
       image: FortuneImage,
-      description: 'Fortune blends creativity with precision to craft beautiful, intuitive user experiences. She transforms ideas into clean and functional interfaces.',
-      skills: ['UI', 'Wireframing', 'Visual Design', 'Interaction design', 'Prototyping'],
-      expertise: 'A balanced mix of visual excellence and usability.'
+      description:
+        'Fortune crafts intuitive and beautiful user experiences with a strong focus on usability.',
+      skills: ['UI Design', 'Wireframing', 'Visual Design', 'Prototyping'],
+      expertise: 'Visual excellence blended with usability.'
     },
     {
       name: 'Chidera',
-      role: 'Team Lead',
+      role: 'Frontend Engineer',
       experience: '5+ years',
       image: ChideraImg,
-      description: 'Chidera delivers pixel perfect interfaces with meticulous attention to detail. Her work ensures seamless experiences across all devices.',
-      skills: ['Webflow', 'React', 'Css Architecture', 'Responsive Design'],
-      expertise: 'Precision implementation and cross-platform consistency.'
+      description:
+        'Chidera delivers pixel-perfect interfaces with consistency across all devices.',
+      skills: ['React', 'Webflow', 'CSS Architecture', 'Responsive Design'],
+      expertise: 'Precision implementation and clean UI.'
     },
     {
       name: 'Seun',
       role: 'Front-End Developer',
       experience: '3+ years',
       image: SeunImg,
-      description: 'Seun delivers clean code and smooth user interactions. His strength is building consistent, scalable components that ensure long-term maintainability..',
-      skills: ['HTML', 'CSS', 'JavaScript', 'React', 'Component Development', 'Accessibility', 'CMS Implementation'],
-      expertise: 'Seun delivers clean code and smooth user interactions.'
+      description:
+        'Seun builds scalable and accessible components with clean, maintainable code.',
+      skills: ['HTML', 'CSS', 'JavaScript', 'React', 'Accessibility'],
+      expertise: 'Smooth interactions and reusable components.'
     },
     {
       name: 'Sodiq',
-      role: 'Backend Develoiper',
+      role: 'Backend Developer',
       experience: '5+ years',
       image: SodiqImg,
-      description: 'Sodiq brings stability speed, and problem solving to backend system. He ensures the foundation of every product is secure, efficient, and built to scale.',
-      skills: ['Node.js', 'APIs', 'Database Design', 'System Intergration', 'Security', 'Server side logic'],
-      expertise: 'Sodiq brings stability speed, and problem solving to backend system.'
+      description:
+        'Sodiq ensures systems are secure, scalable, and optimized for performance.',
+      skills: ['Node.js', 'APIs', 'Databases', 'Security'],
+      expertise: 'Stable and scalable backend systems.'
     }
   ];
 
-  // AUTO SLIDE
+  
+  const CARD_WIDTH = 360;
+
+  // Auto slide
   useEffect(() => {
     const interval = setInterval(() => {
-      setCurrentIndex((prev) =>
-        prev === teamMembers.length - 1 ? 0 : prev + 1
-      );
-    }, 3000); // slide every 3 seconds
+      handleNext();
+    }, 4000);
 
     return () => clearInterval(interval);
-  }, [teamMembers.length]);
+  }, []);
+
+  const handleNext = () => {
+    setCurrentIndex((prev) =>
+      prev === teamMembers.length - 1 ? 0 : prev + 1
+    );
+  };
+
+  const handlePrev = () => {
+    setCurrentIndex((prev) =>
+      prev === 0 ? teamMembers.length - 1 : prev - 1
+    );
+  };
 
   return (
     <>
@@ -124,53 +143,56 @@ function Team() {
 
       {/* Team Section */}
       <section className="team-section">
-        <div className="team-container">
-          <h3 className="team-title">Meet The Team</h3>
-          <p className="team-subtitle">
-            Experienced professionals dedicated to delivering exceptional digital products
-          </p>
+      <div className="team-container">
+        <h3 className="team-title">Meet The Team</h3>
+        <p className="team-subtitle">
+          Experienced professionals dedicated to building quality products
+        </p>
 
-          {/* === AUTO SLIDING GRID === */}
-          <div className="team-grid slider-track"
-               style={{ transform: `translateX(-${currentIndex * 350}px)` }}>
+        {/* Arrows */}
+        <button className="slider-arrow left" onClick={handlePrev}>
+          &#10094;
+        </button>
+        <button className="slider-arrow right" onClick={handleNext}>
+          &#10095;
+        </button>
+
+        {/* Slider */}
+        <div className="slider-wrapper">
+          <div
+            className="team-slider"
+            style={{ transform: `translateX(-${currentIndex * CARD_WIDTH}px)` }}
+          >
             {teamMembers.map((member, index) => (
-              <div key={index} className="team-card">
-                <img
-                  src={member.image}
-                  alt={member.name}
-                  className="card-image"
-                />
+              <div className="team-card" key={index}>
+                <img src={member.image} alt={member.name} />
 
-                <div className="card-contents">
+                <div className="card-content">
                   <div className="card-header">
-                    <h4 className="card-name">{member.name}</h4>
-                    <span className="card-experience">{member.experience}</span>
+                    <h4>{member.name}</h4>
+                    <span>{member.experience}</span>
                   </div>
 
-                  <p className="card-role">{member.role}</p>
-                  <p className="card-description">{member.description}</p>
+                  <p className="role">{member.role}</p>
+                  <p className="description">{member.description}</p>
 
-                  <div className="skills-section">
-                    <p className="skills-title">Key Skills</p>
-                    <div className="skills-list">
-                      {member.skills.map((skill, idx) => (
-                        <span key={idx} className="skill-badge">{skill}</span>
-                      ))}
-                    </div>
+                  <div className="skills">
+                    {member.skills.map((skill, idx) => (
+                      <span key={idx}>{skill}</span>
+                    ))}
                   </div>
 
-                  <div className="expertise-section">
-                    <p className="expertise-label">
-                      What {member.name === 'Fortune' || member.name === 'Chidera' ? 'She' : 'He'} Brings:
-                    </p>
-                    <p className="expertise-text">{member.expertise}</p>
-                  </div>
+                  <p className="expertise">
+                    <strong>What {member.name === 'Fortune' || member.name === 'Chidera' ? 'she' : 'he'} brings:</strong>{' '}
+                    {member.expertise}
+                  </p>
                 </div>
               </div>
             ))}
           </div>
         </div>
-      </section>
+      </div>
+    </section>
     </>
   );
 }
