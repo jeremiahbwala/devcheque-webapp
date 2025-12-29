@@ -50,32 +50,16 @@ function FAQ() {
     { 
       q: 'Do you provide ongoing support and maintenance after launch?', 
       a: 'Yes, we offer post-launch support packages including bug fixes, updates, and feature enhancements.' 
-<<<<<<< HEAD
-=======
     },
     { 
       q: 'Do you sign NDAs (Non-Disclosure Agreements)?', 
       a: 'Yes, we are happy to sign NDAs to protect your confidential information and business ideas.' 
->>>>>>> 969a01c85553514f661f9a661dba7628b23ab7c4
     }
   ];
 
   const toggleFaq = (index) => {
     setOpenFaq(openFaq === index ? null : index);
   };
-<<<<<<< HEAD
-
-  return (
-    <section className="py-5 bg-white">
-      <div className="container" style={{ maxWidth: '48rem' }}>
-        <h2 className="text-center fw-bold mb-3 display-5">
-          Frequently Asked Questions
-        </h2>
-        <p className="text-center text-secondary mb-4">
-          Everything you need to know about working with DevCheque
-        </p>
-=======
->>>>>>> 969a01c85553514f661f9a661dba7628b23ab7c4
 
   return (
     <>
@@ -93,32 +77,6 @@ function FAQ() {
       <section className="faq-grid-section">
         <div className="faq-grid">
           {faqs.map((faq, index) => (
-<<<<<<< HEAD
-            <div className="accordion-item" key={index}>
-              <h2 className="accordion-header" id={`heading${index}`}>
-                <button
-                  className={`accordion-button ${openFaq === index ? '' : 'collapsed'}`}
-                  type="button"
-                  onClick={() => toggleFaq(index)}
-                  aria-expanded={openFaq === index}
-                  aria-controls={`collapse${index}`}
-                >
-                  <span className="d-flex align-items-center gap-3">
-                    <div className="bg-success text-white rounded px-2 py-1 fw-bold">
-                      {String(index + 1).padStart(2, '0')}
-                    </div>
-                    {faq.q}
-                  </span>
-                </button>
-              </h2>
-              <div
-                id={`collapse${index}`}
-                className={`accordion-collapse collapse ${openFaq === index ? 'show' : ''}`}
-                aria-labelledby={`heading${index}`}
-              >
-                <div className="accordion-body">
-                  {faq.a}
-=======
             <div 
               className="faq-item" 
               key={index}
@@ -130,7 +88,6 @@ function FAQ() {
                     {String(index + 1).padStart(2, '0')}
                   </div>
                   <h3 className="faq-question">{faq.q}</h3>
->>>>>>> 969a01c85553514f661f9a661dba7628b23ab7c4
                 </div>
                 <div className="faq-toggle">
                   {openFaq === index ? '×' : '+'}

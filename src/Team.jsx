@@ -1,13 +1,4 @@
-<<<<<<< HEAD
-import 'bootstrap/dist/css/bootstrap.min.css'
-import React, { useState, useEffect } from 'react';
-import { ChevronLeft, ChevronRight } from 'lucide-react';
-import bolajiImg from './assets/team/Bolaji.jpeg';
-import olutadeImg from './assets/team/Olutade.jpeg';
-import fortuneImg from './assets/team/Fortune.jpeg';
-import chideraImg from './assets/team/Chidera.jpeg';
-import AboutUs from './assets/About.jpeg';
-=======
+
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './Team/team.css';
 import React, { useState } from 'react';
@@ -18,7 +9,6 @@ import FortuneImage from './assets/team/Fortune.jpeg'
 import ChideraImg from './assets/team/Chidera.jpeg'
 import AboutImage from './assets/About.jpeg'
 
->>>>>>> 969a01c85553514f661f9a661dba7628b23ab7c4
 
 
 function Team() {
@@ -80,46 +70,6 @@ function Team() {
           
           <div className="about-content">
             <div>
-<<<<<<< HEAD
-              <p className="text-black mb-3">
-                DevCheque began in 2019 when two developers, Bolaji and olutade, set out to solve a real problem: Founders struggled to find reliable
-                designers and developers who delivered quality work on time. <br />
-                We built DevCheque on one promise-deliver exceptional digital products without the agency BS. No overpromising. No delays. No surprise
-                fees. <br />
-                Six years and 50+ projects later, that promise still drives us. We've helped fintech startups launched funded MVPs, revamped 
-                e-commerce platforms that doubled conversions, and built apps users love. <br />
-                Today, DevCheque is a full-stack product partner-from first wireframe to deployment. whether you're a new Founders
-                or a growing business, we treat your projects like it's our own. <br />
-                Let's build something great.  
-              </p>
-              <button className="btn btn-link text-success fw-semibold p-5 d-flex text-decoration-none ms-15">Read More 
-                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-chevron-right" viewBox="0 0 16 16">
-                  <path fillRule="evenodd" d="M4.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L10.293 8 4.646 2.354a.5.5 0 0 1 0-.708"/>
-                </svg>
-              </button>
-            </div>
-            <button className="btn btn-success rounded-pill font-archivo" style={{width: '200px', backgroundColor: '#1da11d'}}>
-              Start Your Project
-            </button>
-          </div>
-
-          {/* IMAGE SIDE */}
-          <div className="col-md-6 d-flex">
-            <div
-              className="rounded-3 w-100 p-3 d-flex align-items-center justify-content-center bg-light"
-              style={{
-                border: "1px solid #eee",
-                height: "320px" 
-              }}
-            >
-              <img
-                src={AboutUs}
-                alt="About DevCheque"
-                className="img-fluid rounded-3 h-100 w-100"
-                style={{
-                  objectFit: "cover",
-                }}
-=======
               <p className="about-text">
                 DevCheque began in 2019 when two developers, Bolaji and Olutade, set out to solve a real problem: founders struggled to find reliable designers and developers who delivered quality work on time.
               </p>
@@ -144,7 +94,6 @@ function Team() {
                 src={AboutImage}
                 alt="DevCheque team meeting"
                 className="about-image"
->>>>>>> 969a01c85553514f661f9a661dba7628b23ab7c4
               />
             </div>
           </div>

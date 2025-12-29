@@ -1,12 +1,7 @@
 import 'bootstrap/dist/css/bootstrap.min.css';
-<<<<<<< HEAD
-import React, { useState, useEffect } from 'react';
-import { API_ENDPOINTS, buildHeaders, fetchWithTimeout, logApiCall } from './config/api';
-=======
 import './Contact Form/contact.css';
 import React, { useState } from 'react';
 import { API_ENDPOINTS, buildHeaders, logApiCall } from './config/api';
->>>>>>> 969a01c85553514f661f9a661dba7628b23ab7c4
 
 function ContactForm() {
   const [formData, setFormData] = useState({
@@ -23,8 +18,6 @@ function ContactForm() {
   const [success, setSuccess] = useState(false);
   const [error, setError] = useState('');
   
-<<<<<<< HEAD
-
   // Fetch user data if available
   useEffect(() => {
     async function fetchUserData() {
@@ -44,8 +37,7 @@ function ContactForm() {
     }
     fetchUserData();
   }, []);
-=======
->>>>>>> 969a01c85553514f661f9a661dba7628b23ab7c4
+
 
   const handleProjectTypeToggle = (type) => {
     setFormData(prev => {
@@ -89,11 +81,7 @@ function ContactForm() {
       console.log("📡 Sending request to:", API_ENDPOINTS.form);
       logApiCall(API_ENDPOINTS.form, { 
         method: 'POST', 
-<<<<<<< HEAD
-        headers, 
-=======
         headers: buildHeaders(), 
->>>>>>> 969a01c85553514f661f9a661dba7628b23ab7c4
         body: JSON.stringify(payload) 
       });
 
@@ -177,50 +165,6 @@ function ContactForm() {
   };
 
   return (
-<<<<<<< HEAD
-    <section id='contactForm' className="section-light-green">
-      <div className="container" style={{ maxWidth: '42rem' }}>
-        <h2 className="text-center text-black fw-bold mb-3 display-5">
-          Let's Talk About Your Project
-        </h2>
-      
-        <div className="card shadow-sm rounded-3 p-4">
-          {success && (
-            <div className="alert alert-success alert-dismissible fade show" role="alert">
-              ✓ Message sent successfully!
-              <button 
-                type="button" 
-                className="btn-close" 
-                onClick={() => setSuccess(false)}
-                aria-label="Close"
-              ></button>
-            </div>
-          )}
-          
-          {error && (
-            <div className="alert alert-danger alert-dismissible fade show" role="alert">
-              {error}
-              <button 
-                type="button" 
-                className="btn-close" 
-                onClick={() => setError('')}
-                aria-label="Close"
-              ></button>
-            </div>
-          )}
-
-          <div>
-            {/* Name & Email */}
-            <div className="row g-3 mb-3">
-              <div className="col-md-6">
-                <label className="form-label" htmlFor="fullName">
-                  Full Name <span className="text-danger">(Required)</span>
-                </label>
-                <input
-                  type="text"
-                  id="fullName"
-                  className="form-control"
-=======
     <section id='contactForm' className="contact-section">
         <div className="contact-container">
           <h2 className="text-center fw-bold mb-5" style={{ fontSize: '2.5rem', color: '#000' }}>
@@ -251,23 +195,11 @@ function ContactForm() {
                 <input
                   type="text"
                   className="input-custom font-archivo"
->>>>>>> 969a01c85553514f661f9a661dba7628b23ab7c4
                   placeholder="Type here"
                   value={formData.fullName}
                   onChange={(e) => setFormData({ ...formData, fullName: e.target.value })}
                 />
               </div>
-<<<<<<< HEAD
-              <div className="col-md-6">
-                <label className="form-label" htmlFor="email">
-                  Email <span className="text-danger">(Required)</span>
-                </label>
-                <input
-                  type="email"
-                  id="email"
-                  className="form-control"
-=======
-
               <div className="form-email-field">
                 <label className="form-label-custom font-archivo">
                   Email <span className="required-tag font-archivo">(Required)</span>
@@ -275,7 +207,6 @@ function ContactForm() {
                 <input
                   type="email"
                   className="input-custom font-archivo"
->>>>>>> 969a01c85553514f661f9a661dba7628b23ab7c4
                   placeholder="Type here"
                   value={formData.email}
                   onChange={(e) => setFormData({ ...formData, email: e.target.value })}
@@ -284,16 +215,6 @@ function ContactForm() {
             </div>
 
             {/* Company */}
-<<<<<<< HEAD
-            <div className="mb-3">
-              <label className="form-label" htmlFor="company">
-                Company/Organization <span className='text-danger'> (optional)</span>
-              </label>
-              <input
-                type="text"
-                id="company"
-                className="form-control"
-=======
             <div className="form-field">
               <label className="form-label-custom font-archivo">
                 Company/Organization <span className="optional-tag font-archivo">(optional)</span>
@@ -301,7 +222,6 @@ function ContactForm() {
               <input
                 type="text"
                 className="input-custom font-archivo"
->>>>>>> 969a01c85553514f661f9a661dba7628b23ab7c4
                 placeholder="Type here"
                 value={formData.company}
                 onChange={(e) => setFormData({ ...formData, company: e.target.value })}
@@ -330,17 +250,6 @@ function ContactForm() {
             </div>
 
             {/* Budget */}
-<<<<<<< HEAD
-            <div className="mb-3">
-              <label className="form-label" htmlFor="budget">
-                Project Budget
-              </label>
-              <p className="small text-muted mb-2">Slide to indicate your budget</p>
-              <input
-                type="range"
-                id="budget"
-                className="form-range"
-=======
             <div className="form-field">
               <label className="form-label-custom font-archivo">
                 Project Budget
@@ -351,7 +260,6 @@ function ContactForm() {
               <input
                 type="range"
                 className="budget-slider"
->>>>>>> 969a01c85553514f661f9a661dba7628b23ab7c4
                 min="5000"
                 max="25000"
                 step="1000"
@@ -368,20 +276,12 @@ function ContactForm() {
             </div>
 
             {/* Message */}
-<<<<<<< HEAD
-            <div className="mb-3">
-              <label className="form-label" htmlFor="message">Message</label>
-              <textarea
-                id="message"
-                className="form-control textarea-lined"
-=======
             <div className="form-message-field">
               <label className="form-label-custom font-archivo">
                 Message <span className="required-tag font-archivo">(Required)</span>
               </label>
               <textarea
                 className="textarea-custom font-archivo"
->>>>>>> 969a01c85553514f661f9a661dba7628b23ab7c4
                 rows="4"
                 placeholder="Type here"
                 value={formData.message}
@@ -402,12 +302,7 @@ function ContactForm() {
 
             {/* Submit Button */}
             <button
-<<<<<<< HEAD
-              type="button"
-              className="btn btn-success-custom w-50 justfy-content-center"
-=======
               className="submit-button font-archivo"
->>>>>>> 969a01c85553514f661f9a661dba7628b23ab7c4
               onClick={handleSubmit}
               disabled={loading}
             >
@@ -426,15 +321,7 @@ function ContactForm() {
             </p>
           </div>
         </div>
-<<<<<<< HEAD
-        <p className='text-center text-black mt-3'>
-          We respect your privacy and respond within 24 hours
-        </p>
-      </div>
-    </section>
-=======
       </section>
->>>>>>> 969a01c85553514f661f9a661dba7628b23ab7c4
   );
 }
 
