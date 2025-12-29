@@ -1,6 +1,12 @@
 import 'bootstrap/dist/css/bootstrap.min.css';
+<<<<<<< HEAD
 import React, { useState, useEffect } from 'react';
 import { API_ENDPOINTS, buildHeaders, fetchWithTimeout, logApiCall } from './config/api';
+=======
+import './Contact Form/contact.css';
+import React, { useState } from 'react';
+import { API_ENDPOINTS, buildHeaders, logApiCall } from './config/api';
+>>>>>>> 969a01c85553514f661f9a661dba7628b23ab7c4
 
 function ContactForm() {
   const [formData, setFormData] = useState({
@@ -17,6 +23,7 @@ function ContactForm() {
   const [success, setSuccess] = useState(false);
   const [error, setError] = useState('');
   
+<<<<<<< HEAD
 
   // Fetch user data if available
   useEffect(() => {
@@ -37,6 +44,8 @@ function ContactForm() {
     }
     fetchUserData();
   }, []);
+=======
+>>>>>>> 969a01c85553514f661f9a661dba7628b23ab7c4
 
   const handleProjectTypeToggle = (type) => {
     setFormData(prev => {
@@ -80,7 +89,11 @@ function ContactForm() {
       console.log("📡 Sending request to:", API_ENDPOINTS.form);
       logApiCall(API_ENDPOINTS.form, { 
         method: 'POST', 
+<<<<<<< HEAD
         headers, 
+=======
+        headers: buildHeaders(), 
+>>>>>>> 969a01c85553514f661f9a661dba7628b23ab7c4
         body: JSON.stringify(payload) 
       });
 
@@ -164,6 +177,7 @@ function ContactForm() {
   };
 
   return (
+<<<<<<< HEAD
     <section id='contactForm' className="section-light-green">
       <div className="container" style={{ maxWidth: '42rem' }}>
         <h2 className="text-center text-black fw-bold mb-3 display-5">
@@ -206,12 +220,44 @@ function ContactForm() {
                   type="text"
                   id="fullName"
                   className="form-control"
+=======
+    <section id='contactForm' className="contact-section">
+        <div className="contact-container">
+          <h2 className="text-center fw-bold mb-5" style={{ fontSize: '2.5rem', color: '#000' }}>
+            Let's Talk About Your Project
+          </h2>
+
+          <div className="form-card">
+            {success && (
+              <div className="alert-custom alert-success section-light-green font-archivo">
+                ✓ Message sent successfully!
+                <button className="close-btn font-archivo" onClick={() => setSuccess(false)}>×</button>
+              </div>
+            )}
+            
+            {error && (
+              <div className="alert-custom alert-danger font-archivo">
+                {error}
+                <button className="close-btn font-archivo" onClick={() => setError('')}>×</button>
+              </div>
+            )}
+
+            {/* Name & Email Row */}
+            <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '20px', marginBottom: '20px' }}>
+              <div className="form-name-field">
+                <label className="form-label-custom font-archivo">
+                  Full Name <span className="required-tag font-archivo">(Required)</span>
+                </label>
+                <input
+                  type="text"
+                  className="input-custom font-archivo"
+>>>>>>> 969a01c85553514f661f9a661dba7628b23ab7c4
                   placeholder="Type here"
                   value={formData.fullName}
                   onChange={(e) => setFormData({ ...formData, fullName: e.target.value })}
-                  required
                 />
               </div>
+<<<<<<< HEAD
               <div className="col-md-6">
                 <label className="form-label" htmlFor="email">
                   Email <span className="text-danger">(Required)</span>
@@ -220,15 +266,25 @@ function ContactForm() {
                   type="email"
                   id="email"
                   className="form-control"
+=======
+
+              <div className="form-email-field">
+                <label className="form-label-custom font-archivo">
+                  Email <span className="required-tag font-archivo">(Required)</span>
+                </label>
+                <input
+                  type="email"
+                  className="input-custom font-archivo"
+>>>>>>> 969a01c85553514f661f9a661dba7628b23ab7c4
                   placeholder="Type here"
                   value={formData.email}
                   onChange={(e) => setFormData({ ...formData, email: e.target.value })}
-                  required
                 />
               </div>
             </div>
 
             {/* Company */}
+<<<<<<< HEAD
             <div className="mb-3">
               <label className="form-label" htmlFor="company">
                 Company/Organization <span className='text-danger'> (optional)</span>
@@ -237,32 +293,44 @@ function ContactForm() {
                 type="text"
                 id="company"
                 className="form-control"
+=======
+            <div className="form-field">
+              <label className="form-label-custom font-archivo">
+                Company/Organization <span className="optional-tag font-archivo">(optional)</span>
+              </label>
+              <input
+                type="text"
+                className="input-custom font-archivo"
+>>>>>>> 969a01c85553514f661f9a661dba7628b23ab7c4
                 placeholder="Type here"
                 value={formData.company}
                 onChange={(e) => setFormData({ ...formData, company: e.target.value })}
               />
             </div>
 
-            {/* Project Types */}
-            <div className="mb-3">
-              <label className="form-label">Project Type</label>
-              <div className="d-flex flex-wrap gap-3">
+            {/* Project Type */}
+            <div className="form-field">
+              <label className="form-label-custom font-archivo">
+                Project Type 
+              </label>
+              <div className="checkbox-grid font-archivo">
                 {["Web Design", "Branding", "Mobile App Design", "Others"].map((type) => (
-                  <div className="form-check" key={type}>
+                  <div className="checkbox-item" key={type}>
                     <input
-                      className="form-check-input"
                       type="checkbox"
+                      className="checkbox-custom font-archivo"
                       checked={formData.projectTypes.includes(type)}
                       onChange={() => handleProjectTypeToggle(type)}
                       id={type}
                     />
-                    <label className="form-check-label" htmlFor={type}>{type}</label>
+                    <label className="checkbox-label" htmlFor={type}>{type}</label>
                   </div>
                 ))}
               </div>
             </div>
 
             {/* Budget */}
+<<<<<<< HEAD
             <div className="mb-3">
               <label className="form-label" htmlFor="budget">
                 Project Budget
@@ -272,24 +340,48 @@ function ContactForm() {
                 type="range"
                 id="budget"
                 className="form-range"
+=======
+            <div className="form-field">
+              <label className="form-label-custom font-archivo">
+                Project Budget
+              </label>
+              <p className='font-archivo' style={{ fontSize: '14px', color: '#666', marginBottom: '8px' }}>
+                Slide to indicate your budget range
+              </p>
+              <input
+                type="range"
+                className="budget-slider"
+>>>>>>> 969a01c85553514f661f9a661dba7628b23ab7c4
                 min="5000"
                 max="25000"
                 step="1000"
                 value={formData.budget}
                 onChange={(e) => setFormData({ ...formData, budget: parseInt(e.target.value) })}
+                style={{
+                  background: `linear-gradient(to right, #7cb342 0%, #7cb342 ${((formData.budget - 5000) / (25000 - 5000)) * 100}%, #424242 ${((formData.budget - 5000) / (25000 - 5000)) * 100}%, #424242 100%)`
+                }}
               />
-              <div className="d-flex justify-content-between small text-muted">
-                <span>${formData.budget.toLocaleString()}</span>
-                <span>$25,000</span>
+              <div className="budget-labels">
+                <span className='font-archivo'>${formData.budget.toLocaleString()}</span>
+                <span className='font-archivo'>$25000</span>
               </div>
             </div>
 
             {/* Message */}
+<<<<<<< HEAD
             <div className="mb-3">
               <label className="form-label" htmlFor="message">Message</label>
               <textarea
                 id="message"
                 className="form-control textarea-lined"
+=======
+            <div className="form-message-field">
+              <label className="form-label-custom font-archivo">
+                Message <span className="required-tag font-archivo">(Required)</span>
+              </label>
+              <textarea
+                className="textarea-custom font-archivo"
+>>>>>>> 969a01c85553514f661f9a661dba7628b23ab7c4
                 rows="4"
                 placeholder="Type here"
                 value={formData.message}
@@ -297,10 +389,9 @@ function ContactForm() {
               ></textarea>
             </div>
 
-            {/* Honeypot field */}
+            {/* Honeypot */}
             <input
               type="text"
-              name="honeypot"
               value={formData.honeypot}
               onChange={(e) => setFormData({ ...formData, honeypot: e.target.value })}
               style={{ display: 'none' }}
@@ -311,27 +402,39 @@ function ContactForm() {
 
             {/* Submit Button */}
             <button
+<<<<<<< HEAD
               type="button"
               className="btn btn-success-custom w-50 justfy-content-center"
+=======
+              className="submit-button font-archivo"
+>>>>>>> 969a01c85553514f661f9a661dba7628b23ab7c4
               onClick={handleSubmit}
               disabled={loading}
             >
               {loading ? (
                 <>
-                  <span className="spinner-border spinner-border-sm me-2" role="status" aria-hidden="true"></span>
+                  <span className='font-archivo' style={{ marginRight: '8px' }}>⟳</span>
                   Sending...
                 </>
               ) : (
                 "Submit"
               )}
             </button>
+
+            <p className="privacy-text font-archivo">
+              We respect your privacy and we respond between 24 hrs
+            </p>
           </div>
         </div>
+<<<<<<< HEAD
         <p className='text-center text-black mt-3'>
           We respect your privacy and respond within 24 hours
         </p>
       </div>
     </section>
+=======
+      </section>
+>>>>>>> 969a01c85553514f661f9a661dba7628b23ab7c4
   );
 }
 

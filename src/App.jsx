@@ -1,9 +1,10 @@
 import 'bootstrap/dist/css/bootstrap.min.css';
+import './App/App.css'
 import './index.css';
 import React, { useState } from 'react';
 import { Menu, X, Rocket, Users, Award, Star } from 'lucide-react';
 import logo from './assets/image 1.png';
-import backgroundImage from './assets/background1.png.jpg';
+import backgroundImage from './assets/background1.jpg';
 import heroImage from './assets/bgimage.jpg';
 import statsImg from './assets/stats.png';
 
@@ -14,7 +15,7 @@ function DevChequeWebsite() {
     <div>
       {/* Navigation */}
       <nav className="navbar navbar-expand-lg bg-white shadow-sm py-3">
-        <div className="container">
+        <div className="container-fluid px-4">
           <div className="d-flex justify-content-between align-items-center w-100">
             
             {/* Logo */}
@@ -31,7 +32,7 @@ function DevChequeWebsite() {
             </div>
 
             {/* CTA Button Desktop */}
-            <button className="btn btn-success rounded-pill px-4 d-none d-lg-block font-archivo">
+            <button className="btn navbar-cta rounded-pill px-4 d-none d-lg-block font-archivo">
               <a href="#contactForm" className='text-decoration-none text-white font-archivo'>Start Your Project</a>
             </button>
 
@@ -53,7 +54,7 @@ function DevChequeWebsite() {
                 <a href="#services" className="text-dark text-decoration-none font-archivo">Services</a>
                 <a href="#work" className="text-dark text-decoration-none font-archivo">How we work</a>
                 <button className="btn btn-success rounded-pill font-archivo">
-                  <a href="#contactForm">Start Your Project</a>
+                  <a href="#contactForm" className='text-decoration-none text-white font-archivo'>Start Your Project</a>
                 </button>
               </div>
             </div>
@@ -69,25 +70,22 @@ function DevChequeWebsite() {
           backgroundSize: 'cover',
           backgroundPosition: 'center',
           backgroundRepeat: 'no-repeat',
-          backgroundColor: '#0a1f1a', // fallback color
-          minHeight: '100vh',
           paddingTop: '100px',
-          paddingBottom: '80px'
         }}
       >
         <div className="container position-relative">
           <div className="text-center text-white" style={{ maxWidth: '900px', margin: '0 auto' }}>
             {/* Tagline */}
-            <p className='font-archivo' style={{ letterSpacing: '2px', fontSize: '40px', fontFamily: '-apple-system' }}>
+            <p className='font-archivo' style={{ letterSpacing: '2px', width: '700', style: 'bold', fontSize: '40px', fontFamily: 'Archivo' }}>
               Design.Develop.Deploy
             </p>
 
             {/* Main Heading */}
-            <h1 className="display-3 fw-bold mb-4" style={{ lineHeight: '1.2' }}>
-              <span className="text-light-green font-archivo">Get Your </span>
-              <span className="text-light-green font-archivo">Product Launched</span>
-              <span className="text-light-green font-archivo"> in </span>
-              <span className="text-light-green font-archivo">Weeeks</span>
+            <h1 className="display-3 fw-bold mb-4" style={{ lineHeight: '1.2', color: '#00ff00' }}>
+              <span className="font-archivo">Get Your </span>
+              <span className="font-archivo">Product Launched</span>
+              <span className="font-archivo"> in </span>
+              <span className="font-archivo">Weeeks</span>
             </h1>
 
             {/* Description */}
@@ -98,15 +96,15 @@ function DevChequeWebsite() {
 
             {/* CTA Buttons */}
             <div className="d-flex flex-column flex-sm-row justify-content-center gap-3 mt-4">
-              <button 
-                className="btn btn-success btn-lg px-5 rounded-pill d-inline-flex align-items-center justify-content-center"
-                style={{ fontSize: '16px', fontWeight: '500' }}
+              <button
+                className="btn hero-button hero-btn1 btn-lg px-5 rounded-pill d-inline-flex align-items-center justify-content-center"
+                style={{ fontSize: '16px',  fontWeight: '500' }}
               >
                 <a href="#contactForm" className='text-white text-decoration-none font-archivo'>Start Your Project</a>
                 <span className="ms-2">→</span>
               </button>
               <button 
-                className="btn btn-outline-light bg-white btn-lg px-5 rounded-pill d-inline-flex align-items-center justify-content-center"
+                className="btn hero-btn2 btn-outline-light bg-white btn-lg px-5 rounded-pill d-inline-flex align-items-center justify-content-center"
                 style={{ fontSize: '16px', fontWeight: '500' }}
               >
                 <a href="#projects" className='text-black text-decoration-none font-archivo'>View Our Work</a>
@@ -115,21 +113,18 @@ function DevChequeWebsite() {
             </div>
           </div>
         </div>
-        <div className="d-flex justify-content-center align-items-center">
-        <img src={heroImage} style={{ height: "250px", width: "auto" }} />
+        <div className="hero-image-wrapper">
+          <img src={heroImage} alt="Hero" className="hero-image" />
         </div>
       </section>
 
 
       {/* Stats Section */}
-      <section className="p-3 section-light-green">
-        <div className="container section-light-green">
-          <p className="text-center text-black text-bold mb-4 font-archivo fs-3">
-            Trusted by <span className="text-success font-archivo fs-10">50+</span> startups and businesses across Africa
-          </p>
-          <img src={statsImg} alt="stats" />
-        </div>
-      </section>
+<section className="stat-section">
+  <div className="stats-wrapper">
+    <img src={statsImg} alt="stats" className="stats-image" />
+  </div>
+</section>
     </div>
   );
 }

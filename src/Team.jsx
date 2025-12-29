@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 import 'bootstrap/dist/css/bootstrap.min.css'
 import React, { useState, useEffect } from 'react';
 import { ChevronLeft, ChevronRight } from 'lucide-react';
@@ -6,75 +7,80 @@ import olutadeImg from './assets/team/Olutade.jpeg';
 import fortuneImg from './assets/team/Fortune.jpeg';
 import chideraImg from './assets/team/Chidera.jpeg';
 import AboutUs from './assets/About.jpeg';
+=======
+import 'bootstrap/dist/css/bootstrap.min.css';
+import './Team/team.css';
+import React, { useState } from 'react';
+import './index.css';
+import BolajiImage from './assets/team/Bolaji.jpeg'
+import OlutadeImage from './assets/team/Olutade.jpeg'
+import FortuneImage from './assets/team/Fortune.jpeg'
+import ChideraImg from './assets/team/Chidera.jpeg'
+import AboutImage from './assets/About.jpeg'
+
+>>>>>>> 969a01c85553514f661f9a661dba7628b23ab7c4
 
 
 function Team() {
-  const [currentTeamIndex, setCurrentTeamIndex] = useState(0);
-    const teamMembers = [
-        {
-          name: 'Bolaji',
-          role: 'Team Lead',
-          experience: '3+ years',
-          image: bolajiImg, 
-          description: 'Bolaji is a seasoned design leader who turns complex challenges into structured, user-centered solutions. He ensures every design decision aligns with user needs and business goals.',
-          skills: ['Product Design', 'Ux Strategy', 'Design System', 'Stakeholders Communication', 'Prototyping'],
-          expertise: 'Clean code and smooth, accessible interactions.'
-        },
-        {
-          name: 'Olutade',
-          role: 'Team Lead',
-          experience: '3+ years',
-          image: olutadeImg,
-          description: 'Olutade builds fast, scalable and reliable digital products with clean engineering practices. He skills as a digital between design and development, ensuring seamless execution.',
-          skills: ['Frontend Development', 'React', 'Custom Architecture'],
-          expertise: 'High quality builds delivered with technical precision.'
-        },
-        {
-          name: 'Fortune',
-          role: 'Product Designer',
-          experience: '4+ years',
-          image: fortuneImg,
-          description: 'Fortune blends creativity with precision to craft beautiful, intuitive user experiences. She highlights ideas into digital products that users love and businesses grow with.',
-          skills: ['UI', 'Wireframing', 'Visual Design', 'Interaction Design', 'Prototyping'],
-          expertise: 'A balanced mix of visual excellence and usability.'
-        },
-        {
-          name: 'Chidera',
-          role: 'Team Lead',
-          experience: '4+ years',
-          image: chideraImg,
-          description: 'Chidera takes user-focused design approaches bringing strategic thinking and creative visual interfaces that resonate with audiences.',
-          skills: ['Webflow','Strategy', 'Css Architecture'],
-          expertise: 'Strategic thinking'
-        }
-      ];
-    
-      
-      useEffect(() => {
-        const interval = setInterval(() => {
-          setCurrentTeamIndex((prev) => (prev + 1) % teamMembers.length);
-        }, 4000);
-        return () => clearInterval(interval);
-      }, [teamMembers.length]);
-    
-      const handlePrevTeam = () => {
-        setCurrentTeamIndex((prev) => (prev - 1 + teamMembers.length) % teamMembers.length);
-      };
-    
-      const handleNextTeam = () => {
-        setCurrentTeamIndex((prev) => (prev + 1) % teamMembers.length);
-      };
-    
-    return (
-      <section id="about" className="py-5 bg-white">
-      <div className="container">
-        <h2 className="text-center fw-bold mb-5 display-5">About us</h2>
+  const [currentIndex, setCurrentIndex] = useState(0);
 
-        {/* About content */}
-        <div className="row mb-5">
-          {/* TEXT SIDE */}
-          <div className="col-md-6 d-flex flex-column justify-content-center">
+  const teamMembers = [
+    {
+      name: 'Bolaji',
+      role: 'Team Lead',
+      experience: '4+ years',
+      image: BolajiImage,
+      description: 'Bolaji is a seasoned design leader who turns complex challenges into structured, user-centered solutions. He ensures every design decision aligns with user needs and business goals.',
+      skills: ['Product Design', 'Ux Strategy', 'Designs System', 'Stakeholder Communications', 'Prototyping'],
+      expertise: 'Clean code and smooth, accessible interactions.'
+    },
+    {
+      name: 'Olutade',
+      role: 'Team Lead',
+      experience: '6+ years',
+      image: OlutadeImage,
+      description: 'Olutade builds fast, scalable, and reliable digital products with clean engineering practices. He acts as a bridge between design and development, ensuring smooth execution.',
+      skills: ['Frontend Development', 'React', 'Technical Leadership', 'System Architecture'],
+      expertise: 'High-quality builds delivered with technical precision.'
+    },
+    {
+      name: 'Fortune',
+      role: 'Product Designer',
+      experience: '4+ years',
+      image: FortuneImage,
+      description: 'Fortune blends creativity with precision to craft beautiful, intuitive user experiences. She transforms ideas into clean and functional interfaces.',
+      skills: ['UI', 'Wireframing', 'Visual Design', 'Interaction design', 'Prototyping'],
+      expertise: 'A balanced mix of visual excellence and usability.'
+    },
+    {
+      name: 'Chidera',
+      role: 'Team Lead',
+      experience: '5+ years',
+      image: ChideraImg,
+      description: 'Chidera delivers pixel-perfect interfaces with meticulous attention to detail. His work ensures seamless experiences across all devices.',
+      skills: ['Webflow', 'React', 'Css Architecture', 'Responsive Design'],
+      expertise: 'Precision implementation and cross-platform consistency.'
+    }
+  ];
+
+  const handlePrev = () => {
+    setCurrentIndex((prev) => (prev === 0 ? teamMembers.length - 1 : prev - 1));
+  };
+
+  const handleNext = () => {
+    setCurrentIndex((prev) => (prev === teamMembers.length - 1 ? 0 : prev + 1));
+  };
+
+  return (
+    <>
+      {/* About Section */}
+      <section id='about' className="about-section">
+        <div className="about-container">
+          <h2 className="about-title">About us</h2>
+          
+          <div className="about-content">
             <div>
+<<<<<<< HEAD
               <p className="text-black mb-3">
                 DevCheque began in 2019 when two developers, Bolaji and olutade, set out to solve a real problem: Founders struggled to find reliable
                 designers and developers who delivered quality work on time. <br />
@@ -113,90 +119,88 @@ function Team() {
                 style={{
                   objectFit: "cover",
                 }}
+=======
+              <p className="about-text">
+                DevCheque began in 2019 when two developers, Bolaji and Olutade, set out to solve a real problem: founders struggled to find reliable designers and developers who delivered quality work on time.
+              </p>
+              <p className="about-text">
+                We built DevCheque on one promise—deliver exceptional digital products without the agency BS. No overpromising. No delays. No surprise fees.
+              </p>
+              <p className="about-text">
+                Six years and 50+ projects later, that promise still drives us. We've helped fintech startups launch funded MVPs, revamped e-commerce platforms that doubled conversions, and built apps users love.
+              </p>
+              <p className="about-text">
+                Today, DevCheque is a full-stack product partner—from first wireframe to deployment. Whether you're a new founder or a growing business, we treat your project like it's our own.
+              </p>
+              <p className="about-text">Let's build something great.</p>
+              
+              <div>
+                <button className="start-project-btn">Start Project</button>
+              </div>
+            </div>
+
+            <div className="about-image-wrapper">
+              <img 
+                src={AboutImage}
+                alt="DevCheque team meeting"
+                className="about-image"
+>>>>>>> 969a01c85553514f661f9a661dba7628b23ab7c4
               />
             </div>
           </div>
         </div>
+      </section>
 
-        {/* Team Section */}
-        <div className="mb-5">
-          <h3 className="text-center fw-bold mb-3 h4">Meet Our Team</h3>
-          <p className="text-center text-black mb-4">
-            Experienced professionals dedicated to delivering exceptional digital products
-          </p>
+      {/* Team Section */}
+<section className="team-section">
+  <div className="team-container">
+    <h3 className="team-title">Meet The Team</h3>
+    <p className="team-subtitle">
+      Experienced professionals dedicated to delivering exceptional digital products
+    </p>
 
-          <div className="position-relative">
-            {/* Team carousel */}
-            <div className="overflow-hidden">
-              <div 
-                className="d-flex transition-transform"
-                style={{ transform: `translateX(-${currentTeamIndex * 100}%)`, transition: 'transform 0.5s ease-in-out' }}
-              >
-                {teamMembers.map((member, index) => (
-                  <div key={index} className="flex-shrink-0 px-2" style={{ minWidth: '100%' }}>
-                    <div className="card border shadow-sm rounded-3 p-3 mx-auto" style={{ maxWidth: '22rem' }}>
-                      <img 
-                        src={member.image} 
-                        alt={member.name} 
-                        className="card-img-top rounded mb-3" 
-                        style={{ height: '12rem', objectFit: 'cover' }}
-                      />
-                      <div className="d-flex justify-content-between align-items-start mb-2">
-                        <div>
-                          <h4 className="h6 fw-bold">{member.name}</h4>
-                          <p className="text-success fw-semibold mb-0">{member.role}</p>
-                        </div>
-                        <span className="text-muted small">{member.experience}</span>
-                      </div>
-                      <p className="text-secondary small mb-2">{member.description}</p>
-                      <div className="mb-2">
-                        <p className="small fw-semibold mb-1">Key Skills</p>
-                        <div className="d-flex flex-wrap gap-1">
-                          {member.skills.map((skill, idx) => (
-                            <span key={idx} className="badge bg-light text-dark">{skill}</span>
-                          ))}
-                        </div>
-                      </div>
-                      <div className="border-top pt-2">
-                        <p className="text-muted small mb-1">What He Brings:</p>
-                        <p className="small fw-medium mb-0">{member.expertise}</p>
-                      </div>
-                    </div>
-                  </div>
+    <div className="team-grid">
+      {teamMembers.map((member, index) => (
+        <div key={index} className="team-card">
+          <img
+            src={member.image}
+            alt={member.name}
+            className="card-image"
+          />
+
+          <div className="card-contents">
+            <div className="card-header">
+              <h4 className="card-name">{member.name}</h4>
+              <span className="card-experience">{member.experience}</span>
+            </div>
+
+            <p className="card-role">{member.role}</p>
+            <p className="card-description">{member.description}</p>
+
+            <div className="skills-section">
+              <p className="skills-title">Key Skills</p>
+              <div className="skills-list">
+                {member.skills.map((skill, idx) => (
+                  <span key={idx} className="skill-badge">{skill}</span>
                 ))}
               </div>
             </div>
 
-            {/* Carousel navigation */}
-            <button
-              onClick={handlePrevTeam}
-              className="position-absolute top-50 start-0 translate-middle-y btn btn-light rounded-circle shadow-sm"
-            >
-              <ChevronLeft size={24} />
-            </button>
-            <button
-              onClick={handleNextTeam}
-              className="position-absolute top-50 end-0 translate-middle-y btn btn-light rounded-circle shadow-sm"
-            >
-              <ChevronRight size={24} />
-            </button>
-          </div>
-
-          {/* Carousel indicators */}
-          <div className="d-flex justify-content-center mt-3 gap-2">
-            {teamMembers.map((_, index) => (
-              <button
-                key={index}
-                onClick={() => setCurrentTeamIndex(index)}
-                className={`rounded-circle border-0 ${index === currentTeamIndex ? 'bg-success' : 'bg-secondary'}`}
-                style={{ width: index === currentTeamIndex ? '2rem' : '0.5rem', height: '0.5rem', transition: 'all 0.3s' }}
-              />
-            ))}
+            <div className="expertise-section">
+              <p className="expertise-label">
+                What {member.name === 'Fortune' ? 'She' : 'He'} Brings:
+              </p>
+              <p className="expertise-text">{member.expertise}</p>
+            </div>
           </div>
         </div>
-      </div>
-    </section>
-    )
+      ))}
+    </div>
+  </div>
+</section>
+
+    </>
+  );
 }
 
 export default Team;

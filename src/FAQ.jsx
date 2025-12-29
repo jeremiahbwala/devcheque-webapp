@@ -1,8 +1,9 @@
 import 'bootstrap/dist/css/bootstrap.min.css';
+import './FAQ/FAQ.css'
 import React, { useState } from 'react';
 
 function FAQ() {
-  const [openFaq, setOpenFaq] = useState(null);
+  const [openFaq, setOpenFaq] = useState(0);
 
   // Move FAQ data to a constant - easier to manage
   const faqs = [
@@ -49,12 +50,20 @@ function FAQ() {
     { 
       q: 'Do you provide ongoing support and maintenance after launch?', 
       a: 'Yes, we offer post-launch support packages including bug fixes, updates, and feature enhancements.' 
+<<<<<<< HEAD
+=======
+    },
+    { 
+      q: 'Do you sign NDAs (Non-Disclosure Agreements)?', 
+      a: 'Yes, we are happy to sign NDAs to protect your confidential information and business ideas.' 
+>>>>>>> 969a01c85553514f661f9a661dba7628b23ab7c4
     }
   ];
 
   const toggleFaq = (index) => {
     setOpenFaq(openFaq === index ? null : index);
   };
+<<<<<<< HEAD
 
   return (
     <section className="py-5 bg-white">
@@ -65,9 +74,26 @@ function FAQ() {
         <p className="text-center text-secondary mb-4">
           Everything you need to know about working with DevCheque
         </p>
+=======
+>>>>>>> 969a01c85553514f661f9a661dba7628b23ab7c4
 
-        <div className="accordion" id="faqAccordion">
+  return (
+    <>
+      <section className="faq-section">
+        <div className="container">
+          <h2 className="text-center fw-bold mb-3" style={{ fontSize: '2.5rem' }}>
+            Frequently Asked Questions
+          </h2>
+          <p className="text-center text-secondary mb-0">
+            Everything you need to know about working with DevCheque
+          </p>
+        </div>
+      </section>
+
+      <section className="faq-grid-section">
+        <div className="faq-grid">
           {faqs.map((faq, index) => (
+<<<<<<< HEAD
             <div className="accordion-item" key={index}>
               <h2 className="accordion-header" id={`heading${index}`}>
                 <button
@@ -92,13 +118,41 @@ function FAQ() {
               >
                 <div className="accordion-body">
                   {faq.a}
+=======
+            <div 
+              className="faq-item" 
+              key={index}
+              onClick={() => toggleFaq(index)}
+            >
+              <div className="faq-header">
+                <div className="faq-left">
+                  <div className="faq-number">
+                    {String(index + 1).padStart(2, '0')}
+                  </div>
+                  <h3 className="faq-question">{faq.q}</h3>
+>>>>>>> 969a01c85553514f661f9a661dba7628b23ab7c4
                 </div>
+                <div className="faq-toggle">
+                  {openFaq === index ? '×' : '+'}
+                </div>
+              </div>
+              <div className={`faq-answer ${openFaq === index ? 'open' : ''}`}>
+                {faq.a}
               </div>
             </div>
           ))}
         </div>
-      </div>
-    </section>
+      </section>
+
+      <section className="cta-section">
+        <h2 className="fw-bold mb-4" style={{ fontSize: '2.5rem' }}>
+          Have More Questions?
+        </h2>
+        <a href="#contactForm" className="cta-button">
+          Get in Touch
+        </a>
+      </section>
+    </>
   );
 }
 

@@ -107,6 +107,9 @@ export default {
   isDevelopment,
   isProduction,
   buildHeaders,
+<<<<<<< HEAD
   fetchWithTimeout,
+=======
+>>>>>>> 969a01c85553514f661f9a661dba7628b23ab7c4
   logApiCall,
 };
