@@ -1,5 +1,6 @@
 import 'bootstrap/dist/css/bootstrap.min.css';
 import React, { useState, useEffect } from 'react';
+import { API_ENDPOINTS, buildHeaders, fetchWithTimeout, logApiCall } from './config/api';
 
 function ContactForm() {
   const [formData, setFormData] = useState({
@@ -15,39 +16,15 @@ function ContactForm() {
   const [loading, setLoading] = useState(false);
   const [success, setSuccess] = useState(false);
   const [error, setError] = useState('');
-  const [csrfToken, setCsrfToken] = useState("");
+  
 
-  useEffect(() => {
-    async function fetchCsrfToken() {
-      try {
-        const res = await fetch(
-          "https://devchequebackend-production.up.railway.app/api/csrf/",
-          { 
-            credentials: "include",
-            mode: 'cors'
-          }
-        );
-        if (!res.ok) {
-          console.warn("CSRF endpoint returned error:", res.status);
-          // Don't set error, just log it
-          return;
-        }
-        const data = await res.json();
-        console.log("CSRF Response:", data);
-        setCsrfToken(data.csrfToken || "");
-      } catch (err) {
-        console.warn("CSRF fetch failed (form will work without it):", err);
-        // Don't set error - form can still work without CSRF in some cases
-      }
-    }
-    fetchCsrfToken();
-  }, []);
-
+  // Fetch user data if available
   useEffect(() => {
     async function fetchUserData() {
       try {
-        const res = await fetch("https://devchequebackend-production.up.railway.app/api/form/");
+        const res = await fetchWithTimeout(API_ENDPOINTS.form);
         if (!res.ok) return;
+        
         const data = await res.json();
         setFormData(prev => ({
           ...prev,
@@ -72,15 +49,17 @@ function ContactForm() {
   };
 
   const handleSubmit = async () => {
-    console.log("Submit button clicked!");
+    console.log("🚀 === FORM SUBMISSION START ===");
     
     // Basic validation
     if (!formData.fullName || !formData.email) {
+      console.log("❌ Validation failed");
       setError("Please fill in all required fields");
       return;
     }
 
     try {
+      console.log("✅ Validation passed");
       setLoading(true);
       setError('');
       setSuccess(false);
@@ -95,31 +74,33 @@ function ContactForm() {
         honeypot: formData.honeypot
       };
 
-      console.log("Sending payload:", payload);
-      console.log("CSRF Token:", csrfToken ? "Present" : "Not present");
+      console.log("📦 Payload being sent:", payload);
 
-      const headers = {
-        "Content-Type": "application/json"
-      };
-
-      // Only add CSRF token if we have it
-      if (csrfToken) {
-        headers["X-CSRFToken"] = csrfToken;
-      }
-
-      const res = await fetch("https://devchequebackend-production.up.railway.app/api/", {
-        method: "POST",
-        headers: headers,
-        credentials: "include",
-        mode: 'cors',
-        body: JSON.stringify(payload)
+      
+      console.log("📡 Sending request to:", API_ENDPOINTS.form);
+      logApiCall(API_ENDPOINTS.form, { 
+        method: 'POST', 
+        headers, 
+        body: JSON.stringify(payload) 
       });
 
-      console.log("Response status:", res.status);
+      const res = await fetch(
+        API_ENDPOINTS.form,
+        {
+          method: "POST",
+          headers: buildHeaders(),
+          body: JSON.stringify(payload)
+        }
+      );
+
+      console.log("📥 Response received!");
+      console.log("   Status Code:", res.status);
+      console.log("   Status OK?:", res.ok);
 
       if (!res.ok) {
+        console.log("❌ Response not OK, handling error...");
         const errorText = await res.text();
-        console.error("Error response:", errorText);
+        console.error("   Error Response:", errorText);
         
         let errorData;
         try {
@@ -131,12 +112,24 @@ function ContactForm() {
         throw new Error(errorData.message || errorData.error || `Server error: ${res.status}`);
       }
 
-      const responseData = await res.json();
-      console.log("Success response:", responseData);
+      // Check response type
+      const contentType = res.headers.get("content-type");
+      console.log("📄 Response Content-Type:", contentType);
 
+      let responseData;
+      if (contentType && contentType.includes("application/json")) {
+        responseData = await res.json();
+        console.log("✅ JSON Response Data:", responseData);
+      } else {
+        responseData = await res.text();
+        console.log("⚠️ TEXT Response Data:", responseData);
+      }
+
+      console.log("🎉 SUCCESS! Setting success state...");
       setSuccess(true);
       setError('');
 
+      console.log("🧹 Clearing form...");
       // Reset form
       setFormData({
         fullName: '',
@@ -148,34 +141,57 @@ function ContactForm() {
         honeypot: ''
       });
 
+      console.log("✅ Form cleared successfully!");
+
       // Auto-hide success message after 5 seconds
-      setTimeout(() => setSuccess(false), 5000);
+      setTimeout(() => {
+        console.log("👋 Hiding success message now");
+        setSuccess(false);
+      }, 5000);
 
     } catch (err) {
-      console.error("Submit error:", err);
+      console.error("💥 === ERROR CAUGHT ===");
+      console.error("Error Object:", err);
+      console.error("Error Message:", err.message);
+      
       setError(err.message || "Error sending message. Please try again.");
       setSuccess(false);
     } finally {
+      console.log("🏁 Setting loading to false");
       setLoading(false);
+      console.log("=== FORM SUBMISSION END ===\n");
     }
   };
 
   return (
-    <section id='contactForm' className="py-5" style={{backgroundColor: '#90ee90'}}>
+    <section id='contactForm' className="section-light-green">
       <div className="container" style={{ maxWidth: '42rem' }}>
-        <h2 className=" text-center text-black fw-bold mb-3 display-5">Let's Talk About Your Project</h2>
+        <h2 className="text-center text-black fw-bold mb-3 display-5">
+          Let's Talk About Your Project
+        </h2>
       
         <div className="card shadow-sm rounded-3 p-4">
           {success && (
             <div className="alert alert-success alert-dismissible fade show" role="alert">
               ✓ Message sent successfully!
-              <button type="button" className="btn-close" onClick={() => setSuccess(false)}></button>
+              <button 
+                type="button" 
+                className="btn-close" 
+                onClick={() => setSuccess(false)}
+                aria-label="Close"
+              ></button>
             </div>
           )}
+          
           {error && (
             <div className="alert alert-danger alert-dismissible fade show" role="alert">
               {error}
-              <button type="button" className="btn-close" onClick={() => setError('')}></button>
+              <button 
+                type="button" 
+                className="btn-close" 
+                onClick={() => setError('')}
+                aria-label="Close"
+              ></button>
             </div>
           )}
 
@@ -183,11 +199,12 @@ function ContactForm() {
             {/* Name & Email */}
             <div className="row g-3 mb-3">
               <div className="col-md-6">
-                <label className="form-label">
+                <label className="form-label" htmlFor="fullName">
                   Full Name <span className="text-danger">(Required)</span>
                 </label>
                 <input
                   type="text"
+                  id="fullName"
                   className="form-control"
                   placeholder="Type here"
                   value={formData.fullName}
@@ -196,11 +213,12 @@ function ContactForm() {
                 />
               </div>
               <div className="col-md-6">
-                <label className="form-label">
+                <label className="form-label" htmlFor="email">
                   Email <span className="text-danger">(Required)</span>
                 </label>
                 <input
                   type="email"
+                  id="email"
                   className="form-control"
                   placeholder="Type here"
                   value={formData.email}
@@ -212,9 +230,12 @@ function ContactForm() {
 
             {/* Company */}
             <div className="mb-3">
-              <label className="form-label">Company/Organization <span className='text-danger'> (optional)</span></label>
+              <label className="form-label" htmlFor="company">
+                Company/Organization <span className='text-danger'> (optional)</span>
+              </label>
               <input
                 type="text"
+                id="company"
                 className="form-control"
                 placeholder="Type here"
                 value={formData.company}
@@ -243,10 +264,13 @@ function ContactForm() {
 
             {/* Budget */}
             <div className="mb-3">
-              <label className="form-label">Project Budget</label>
+              <label className="form-label" htmlFor="budget">
+                Project Budget
+              </label>
               <p className="small text-muted mb-2">Slide to indicate your budget</p>
               <input
                 type="range"
+                id="budget"
                 className="form-range"
                 min="5000"
                 max="25000"
@@ -262,18 +286,14 @@ function ContactForm() {
 
             {/* Message */}
             <div className="mb-3">
-              <label className="form-label">Message</label>
+              <label className="form-label" htmlFor="message">Message</label>
               <textarea
-                className="form-control"
+                id="message"
+                className="form-control textarea-lined"
                 rows="4"
                 placeholder="Type here"
                 value={formData.message}
                 onChange={(e) => setFormData({ ...formData, message: e.target.value })}
-                style={{
-                  backgroundImage: 'linear-gradient(transparent, transparent 39px, #ccc 39px, #ccc 40px)',
-                  backgroundSize: '100% 40px',
-                  lineHeight: '40px'
-                }}
               ></textarea>
             </div>
 
@@ -286,12 +306,13 @@ function ContactForm() {
               style={{ display: 'none' }}
               tabIndex="-1"
               autoComplete="off"
+              aria-hidden="true"
             />
 
             {/* Submit Button */}
             <button
               type="button"
-              className="btn btn-success w-50"
+              className="btn btn-success-custom w-50 justfy-content-center"
               onClick={handleSubmit}
               disabled={loading}
             >
@@ -306,7 +327,9 @@ function ContactForm() {
             </button>
           </div>
         </div>
-        <p className='text-center text-black'>We respect your privacy and we respond between 24 hrs</p>
+        <p className='text-center text-black mt-3'>
+          We respect your privacy and respond within 24 hours
+        </p>
       </div>
     </section>
   );

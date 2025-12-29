@@ -9,6 +9,7 @@ import ContactForm from './ContactForm'
 import Footer from './Footer'
 import CaseStudy from './CaseStudy';
 import Testimonials from './Testimonials'
+import ErrorBoundary from "./ErrorBoundary.jsx";
 
 createRoot(document.getElementById('root')).render(
   <StrictMode>
@@ -20,5 +21,6 @@ createRoot(document.getElementById('root')).render(
     <ContactForm />
     <FAQ />
     <Footer />
+    <ErrorBoundary />
   </StrictMode>,
 )
