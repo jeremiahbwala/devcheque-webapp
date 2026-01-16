@@ -64,7 +64,7 @@ function DevChequeWebsite() {
 
       {/* Hero Section */}
       <section 
-        className="position-relative overflow-hidden"
+        className="mt-1 position-relative overflow-hidden"
         style={{ 
           backgroundImage: `url('${backgroundImage}')`,
           backgroundSize: 'cover',
@@ -73,7 +73,7 @@ function DevChequeWebsite() {
           paddingTop: '100px',
         }}
       >
-        <div className="container position-relative">
+        <div className="container position-relative mt-0">
           <div className="text-center text-white" style={{ maxWidth: '900px', margin: '0 auto' }}>
             {/* Tagline */}
             <p className='hero-text font-archivo'>
@@ -95,7 +95,7 @@ function DevChequeWebsite() {
             </p>
 
             {/* CTA Buttons */}
-            <div className="d-flex flex-column flex-sm-row justify-content-center gap-3 mt-4">
+            <div className="d-flex flex-column flex-sm-row justify-content-center gap-3 mt-5">
               <button 
                 className="btn hero-button hero-btn1 btn-lg px-5 rounded-pill d-inline-flex align-items-center justify-content-center"
                 style={{ fontSize: '16px',  fontWeight: '500' }}
@@ -114,18 +114,15 @@ function DevChequeWebsite() {
           </div>
         </div>
         <div className="hero-image-wrapper">
-  <img src={heroImage} alt="Hero" className="hero-image" />
-</div>
-
+          <img src={heroImage} alt="Hero" className="hero-image" />
+        </div>
       </section>
-
-
       {/* Stats Section */}
-<section className="stat-section">
-  <div className="stats-wrapper">
-    <img src={statsImg} alt="stats" className="stats-image" />
-  </div>
-</section>
+      <section className="stat-section">
+        <div className="stats-wrapper">
+          <img src={statsImg} alt="stats" className="stats-image" />
+        </div>
+      </section>
 
     </div>
   );
